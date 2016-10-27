@@ -676,7 +676,6 @@ GameObject:
   - 61: {fileID: 1857146600}
   - 50: {fileID: 1857146599}
   - 114: {fileID: 1857146598}
-  - 114: {fileID: 1857146597}
   m_Layer: 0
   m_Name: Pusher
   m_TagString: Untagged
@@ -684,19 +683,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1857146597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000010305476000, guid: 9f025585299a353439fe83e6911a5c9e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1857146596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ce602540d08c52409216474bd81d445, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpAccel: 400
 --- !u!114 &1857146598
 MonoBehaviour:
   m_ObjectHideFlags: 0
