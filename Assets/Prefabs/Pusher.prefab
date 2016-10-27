@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012877267538}
   - 212: {fileID: 212000014271250830}
-  - 58: {fileID: 58000011013265592}
+  - 61: {fileID: 61000012628790326}
   - 50: {fileID: 50000011292846196}
   - 114: {fileID: 114000010693149842}
   - 114: {fileID: 114000010305476000}
@@ -61,8 +61,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58000011013265592
-CircleCollider2D:
+--- !u!61 &61000012628790326
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -74,7 +74,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
 --- !u!114 &114000010305476000
 MonoBehaviour:
   m_ObjectHideFlags: 1
