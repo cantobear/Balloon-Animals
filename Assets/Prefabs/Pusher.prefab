@@ -89,7 +89,7 @@ MonoBehaviour:
   jumpControl: Jump
   maxHorizontalSpeed: 7
   horizontalAccel: 50
-  jumpAccel: 300
+  jumpAccel: 400
   deceleration: 0.5
 --- !u!212 &212000012446214710
 SpriteRenderer:
