@@ -314,7 +314,7 @@ GameObject:
   - 4: {fileID: 505826020}
   - 212: {fileID: 505826019}
   - 61: {fileID: 505826018}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1127,7 +1127,7 @@ GameObject:
   - 4: {fileID: 2047144449}
   - 212: {fileID: 2047144451}
   - 61: {fileID: 2047144450}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: High Ground
   m_TagString: Wall
   m_Icon: {fileID: 0}
