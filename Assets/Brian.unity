@@ -142,9 +142,9 @@ GameObject:
   - 4: {fileID: 182142182}
   - 212: {fileID: 182142181}
   - 61: {fileID: 182142180}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,9 +314,9 @@ GameObject:
   - 4: {fileID: 505826020}
   - 212: {fileID: 505826019}
   - 61: {fileID: 505826018}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -731,6 +731,7 @@ GameObject:
   - 4: {fileID: 1408130734}
   - 212: {fileID: 1408130733}
   - 114: {fileID: 1408130732}
+  - 120: {fileID: 1408130735}
   m_Layer: 0
   m_Name: Turrent
   m_TagString: Untagged
@@ -795,6 +796,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!120 &1408130735
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1408130731}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 94dda436fb25ef34a81a3baf4bb273b1, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: 0.1
+    endWidth: 0.1
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 2160313283
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 2160313283
+  m_UseWorldSpace: 1
 --- !u!1 &1431773183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,9 +1127,9 @@ GameObject:
   - 4: {fileID: 2047144449}
   - 212: {fileID: 2047144451}
   - 61: {fileID: 2047144450}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: High Ground
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1161,9 +1204,9 @@ GameObject:
   - 4: {fileID: 2118270778}
   - 212: {fileID: 2118270780}
   - 61: {fileID: 2118270779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
