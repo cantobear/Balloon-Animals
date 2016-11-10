@@ -6,8 +6,10 @@ public class Activator : MonoBehaviour {
     SpriteRenderer sr;
     public KeyCode key;
     bool active = false;
-    GameObject note;
+    GameObject note, gm;
     Color old;
+    public bool createMode;
+    public GameObject n;
     
     void Awake()
     {
@@ -16,10 +18,12 @@ public class Activator : MonoBehaviour {
 
     void Start()
     {
+        gm = GameObject.Find("GameManager");
         old = sr.color;
     }
 
     void Update () {
+
         if (Input.GetKeyDown(key))
             StartCoroutine(Pressed());
 
@@ -28,6 +32,10 @@ public class Activator : MonoBehaviour {
             Destroy(note);
             AddScore();
             active = false;
+        }
+        else if (Input.GetKeyDown(key)&& !active)
+        {
+            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 1);
         }
 	}
 
@@ -45,7 +53,7 @@ public class Activator : MonoBehaviour {
 
     void AddScore()
     {
-        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + 100);
+        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + gm.GetComponent<ddrGameManager>().GetScore());
     }
 
     IEnumerator Pressed()
@@ -54,4 +62,5 @@ public class Activator : MonoBehaviour {
         yield return new WaitForSeconds(0.05f);
         sr.color = old;
     }
+
 }

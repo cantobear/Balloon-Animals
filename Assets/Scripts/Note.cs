@@ -12,7 +12,7 @@ public class Note : MonoBehaviour {
     }
 
 	void Start () {
-        rb.velocity = new Vector2(0, -speed);
+        rb.velocity = new Vector2(-speed, 0);
 	}
 	
 	void Update () {

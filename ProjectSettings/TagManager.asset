@@ -19,12 +19,12 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - DDR1
+  - DDR2
+  - DDR3
+  - DDR4
+  - DDR5
+  - DDR6
   - 
   - 
   - 
@@ -41,7 +41,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Note
-    uniqueID: 4140312287
     locked: 0
