@@ -142,7 +142,7 @@ GameObject:
   - 4: {fileID: 182142182}
   - 212: {fileID: 182142181}
   - 61: {fileID: 182142180}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Left Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1204,7 +1204,7 @@ GameObject:
   - 4: {fileID: 2118270778}
   - 212: {fileID: 2118270780}
   - 61: {fileID: 2118270779}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Right Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
