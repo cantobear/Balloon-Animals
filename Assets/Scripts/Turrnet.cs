@@ -5,16 +5,20 @@ public class Turrnet : MonoBehaviour {
 
     GameObject arrowPrefab;
     float charge = 0;
+    Transform turretDirection;
 
 	// Use this for initialization
 	void Start () {
         arrowPrefab = Resources.Load<GameObject>("Arrow");
+        turretDirection = new GameObject("TurrentDirection").transform;
+        turretDirection.position = transform.position;
+        turretDirection.SetParent(transform);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 direction = (new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, gameObject.transform.position.z) - transform.position).normalized;
-        transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
+        Vector3 direction = (new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, turretDirection.position.z) - turretDirection.position).normalized;
+        turretDirection.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
         if (Input.GetAxis("Fire1") == 1) {
             charge = Mathf.Min(charge + Time.deltaTime, 0.5f);
         }
@@ -22,7 +26,7 @@ public class Turrnet : MonoBehaviour {
             fireDirection(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90, charge * 50);
             charge = 0;
         }
-        drawTragectory(transform.position, transform.up * charge * 50);
+        drawTragectory(turretDirection.position, turretDirection.up * charge * 50);
     }
 
     void drawTragectory(Vector3 startPos, Vector3 velocity) {
@@ -42,7 +46,7 @@ public class Turrnet : MonoBehaviour {
 
     void fireDirection(float angle, float speed) {
         GameObject arrow = Instantiate<GameObject>(arrowPrefab);
-        arrow.transform.position = transform.position;
+        arrow.transform.position = turretDirection.position;
         arrow.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         arrow.GetComponent<Rigidbody2D>().velocity = arrow.transform.up * speed;
 

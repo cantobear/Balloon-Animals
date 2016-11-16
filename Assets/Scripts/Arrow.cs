@@ -5,11 +5,9 @@ public class Arrow : MonoBehaviour {
 
     public float despawnTime = 5f;
 
-    private Vector3 lastPosition;
-
 	// Use this for initialization
 	void Start () {
-        lastPosition = transform.position;
+
 	}
 	
 	// Update is called once per frame
@@ -18,18 +16,16 @@ public class Arrow : MonoBehaviour {
             Vector3 direction = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
             transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
         }
-        lastPosition = transform.position;
     }
 
     void OnCollisionEnter2D (Collision2D c) {
         if (c.collider.CompareTag("Wall")) {
-            RaycastHit2D[] hit = Physics2D.LinecastAll(lastPosition - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, lastPosition + transform.up * 3f * GetComponent<BoxCollider2D>().bounds.extents.y);
+            RaycastHit2D[] hit = Physics2D.LinecastAll(transform.position - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, transform.position + transform.up * 3f * GetComponent<BoxCollider2D>().bounds.extents.y);
             bool didHit = false;
             foreach (RaycastHit2D x in hit) {
                 if (x.collider.CompareTag(c.collider.tag)) {
                     GetComponent<Rigidbody2D>().isKinematic = true;
                     didHit = true;
-                    transform.position = lastPosition;
                     transform.position += new Vector3(x.point.x, x.point.y) - transform.position;
                     break;
                 }
