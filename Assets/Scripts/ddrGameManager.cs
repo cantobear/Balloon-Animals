@@ -17,7 +17,7 @@ public class ddrGameManager : MonoBehaviour {
 
     public int GetScore()
     {
-        return 1 * multiplier;
+        return 2 * multiplier;
     }
 
 }

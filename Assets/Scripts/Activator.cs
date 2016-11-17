@@ -35,7 +35,8 @@ public class Activator : MonoBehaviour {
         }
         else if (Input.GetKeyDown(key)&& !active)
         {
-            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 1);
+            if (PlayerPrefs.GetInt("Score") > 0)
+                PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") - 1);
         }
 	}
 
