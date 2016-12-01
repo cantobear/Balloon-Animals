@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Note
+  - Balloon
   layers:
   - Default
   - TransparentFX

@@ -35,6 +35,8 @@ public class Arrow : MonoBehaviour {
                 GetComponent<BoxCollider2D>().isTrigger = true;
                 StartCoroutine("deleteAfterDelay", despawnTime);
             }
+        } else if (c.collider.CompareTag("Balloon")) {
+            c.gameObject.GetComponent<BalloonBehaviour>().onHit();
         }
     }
 

@@ -37,9 +37,11 @@ public class PlayerController : MonoBehaviour {
             }
         }
         rb.AddForce(transform.right * Input.GetAxis(horizontalControl) * horizontalAccel * (grounded ? 1 : 0.25f));
+        if (Input.GetAxis(horizontalControl) != 0)
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * Mathf.Sign(Input.GetAxis(horizontalControl)), transform.localScale.y, transform.localScale.z);
         //Caps the player's horizontal velocity
         Vector2 velocity = rb.velocity;
 		velocity.x = Mathf.Clamp (velocity.x, -maxHorizontalSpeed, maxHorizontalSpeed);
 		rb.velocity = velocity;
-	}
+    }
 }
