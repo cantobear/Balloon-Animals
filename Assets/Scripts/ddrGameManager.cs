@@ -20,4 +20,9 @@ public class ddrGameManager : MonoBehaviour {
         return 2 * multiplier;
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Destroy(col.gameObject);
+    }
+
 }
