@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Turrnet : MonoBehaviour {
 
+    public float firePower = 75;
     GameObject arrowPrefab;
     float charge = 0;
     Transform turretDirection;
@@ -23,10 +24,10 @@ public class Turrnet : MonoBehaviour {
             charge = Mathf.Min(charge + Time.deltaTime, 0.5f);
         }
         else if (charge > 0) {
-            fireDirection(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90, charge * 50);
+            fireDirection(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90, charge * firePower);
             charge = 0;
         }
-        drawTragectory(turretDirection.position, turretDirection.up * charge * 50);
+        drawTragectory(turretDirection.position, turretDirection.up * charge * firePower);
     }
 
     void drawTragectory(Vector3 startPos, Vector3 velocity) {
