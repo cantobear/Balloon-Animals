@@ -1548,7 +1548,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTime: 0.6
-  spawnDelay: 0.5
+  spawnDelay: 2
+  intervalDelay: 5
   notes: []
   PrefabLimit: 10
   count: 0
