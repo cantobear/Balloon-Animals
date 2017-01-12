@@ -127,51 +127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010009396030, guid: 9f025585299a353439fe83e6911a5c9e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000012446214710, guid: 9f025585299a353439fe83e6911a5c9e,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4de234e5dc4c1db4d82a128451f7b004,
-        type: 3}
-    - target: {fileID: 212000012446214710, guid: 9f025585299a353439fe83e6911a5c9e,
-        type: 2}
-      propertyPath: m_Color.r
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000012446214710, guid: 9f025585299a353439fe83e6911a5c9e,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000012446214710, guid: 9f025585299a353439fe83e6911a5c9e,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010009396030, guid: 9f025585299a353439fe83e6911a5c9e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010009396030, guid: 9f025585299a353439fe83e6911a5c9e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000013614976042, guid: 9f025585299a353439fe83e6911a5c9e,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013735878728, guid: 9f025585299a353439fe83e6911a5c9e,
-        type: 2}
-      propertyPath: maxHorizontalSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013735878728, guid: 9f025585299a353439fe83e6911a5c9e,
-        type: 2}
-      propertyPath: jumpAccel
-      value: 450
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f025585299a353439fe83e6911a5c9e, type: 2}
@@ -330,24 +286,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
---- !u!1 &305611352 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000014045486624, guid: 901a634400b73aa47b515ccf0bd9bad8,
-    type: 2}
-  m_PrefabInternal: {fileID: 564725529}
---- !u!114 &305611353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 305611352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4130fe5e2f9d33c458feaa387dafbf79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropControl: Drop
-  balloonCount: 100
 --- !u!1001 &390135776
 Prefab:
   m_ObjectHideFlags: 0
@@ -669,45 +607,6 @@ Prefab:
     - target: {fileID: 4000010474626384, guid: 901a634400b73aa47b515ccf0bd9bad8, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010474626384, guid: 901a634400b73aa47b515ccf0bd9bad8, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010474626384, guid: 901a634400b73aa47b515ccf0bd9bad8, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000010191879220, guid: 901a634400b73aa47b515ccf0bd9bad8,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300016, guid: fe7055e3656c5dc469a4c03115fd8a19,
-        type: 3}
-    - target: {fileID: 212000010191879220, guid: 901a634400b73aa47b515ccf0bd9bad8,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000010191879220, guid: 901a634400b73aa47b515ccf0bd9bad8,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000010191879220, guid: 901a634400b73aa47b515ccf0bd9bad8,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000010642108576, guid: 901a634400b73aa47b515ccf0bd9bad8,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011477572636, guid: 901a634400b73aa47b515ccf0bd9bad8,
-        type: 2}
-      propertyPath: horizontalControl
-      value: Horizontal2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 901a634400b73aa47b515ccf0bd9bad8, type: 2}
@@ -1441,7 +1340,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1557208278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,7 +1869,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 175a092e3f77fc041ba3a49e52424068, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -2034,7 +1933,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 022a0f819fb887a40aa1e6fb2afb06bc, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7205882, g: 0.7205882, b: 0.7205882, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!4 &1964809162
