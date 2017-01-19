@@ -19,7 +19,7 @@ public class Arrow : MonoBehaviour {
     }
 
     void OnCollisionEnter2D (Collision2D c) {
-        if (c.collider.CompareTag("Wall")) {
+        if (c.collider.CompareTag("Wall") || c.collider.CompareTag("Player")) {
             RaycastHit2D[] hit = Physics2D.LinecastAll(transform.position - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, transform.position + transform.up * 3f * GetComponent<BoxCollider2D>().bounds.extents.y);
             bool didHit = false;
             foreach (RaycastHit2D x in hit) {
@@ -31,11 +31,18 @@ public class Arrow : MonoBehaviour {
                 }
             }
             if (didHit) {
+                if (c.collider.CompareTag("Player"))
+                    transform.parent = c.transform;
                 GetComponent<Rigidbody2D>().isKinematic = true;
                 GetComponent<BoxCollider2D>().isTrigger = true;
                 StartCoroutine("deleteAfterDelay", despawnTime);
             }
-        } else if (c.collider.CompareTag("Balloon")) {
+            if (c.collider.name == "Ground") {
+                gameObject.layer = 18;
+                StartCoroutine("deleteAfterDelay", despawnTime);
+            }
+        }
+        else if (c.collider.CompareTag("Balloon")) {
             c.gameObject.GetComponent<BalloonBehaviour>().onHit();
         }
     }

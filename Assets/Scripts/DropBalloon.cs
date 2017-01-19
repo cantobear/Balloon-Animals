@@ -31,6 +31,7 @@ public class DropBalloon : MonoBehaviour {
             GameObject spawned = Instantiate<GameObject>(balloon);
             spawned.transform.position = transform.position;
             spawned.transform.Translate(Vector3.down * 1.8f);
+            spawned.transform.Rotate(new Vector3(0, 0, Random.Range(1, 360)));
 
             spawned.GetComponent<BalloonBehaviour>().sprite = balloonSprites[Random.Range(0, 3)];
         }
