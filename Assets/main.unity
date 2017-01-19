@@ -1595,6 +1595,48 @@ Transform:
   - {fileID: 461235636}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!1001 &1687385506
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000013796096692, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013796096692, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013796096692, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013796096692, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013796096692, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013796096692, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013796096692, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013796096692, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1708226842
 Prefab:
   m_ObjectHideFlags: 0
@@ -1872,8 +1914,8 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: 0.1
-    endWidth: 0.1
+    startWidth: 0.2
+    endWidth: 0.2
     m_StartColor:
       serializedVersion: 2
       rgba: 2160313283
@@ -2052,8 +2094,8 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: 0.1
-    endWidth: 0.1
+    startWidth: 0.2
+    endWidth: 0.2
     m_StartColor:
       serializedVersion: 2
       rgba: 2160313283
