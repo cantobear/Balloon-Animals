@@ -10,6 +10,8 @@ public class ddrSpawner : MonoBehaviour {
     public GameObject[] notes;        // Array of enemy prefabs.
     public int PrefabLimit = 10;
     public int count;
+    public int balloonsPerInterval = 10;
+
 
     public void Start()
     {
@@ -30,8 +32,10 @@ public class ddrSpawner : MonoBehaviour {
         int enemyIndex = Random.Range(0, notes.Length);
         Instantiate(notes[enemyIndex], transform.position, transform.rotation);
         count++;
-        if (count >= 10)
-        {
+        if (count >= balloonsPerInterval)
+        {   
+            PlayerPrefs.SetInt("bCount", PlayerPrefs.GetInt("bCount") + PlayerPrefs.GetInt("Score"));
+            PlayerPrefs.SetInt("Score", 0);
             CancelInvoke();
             InvokeR(intervalDelay);
         }

@@ -13,6 +13,7 @@ public class DropBalloon : MonoBehaviour {
     void Start () {
         balloon = Resources.Load<GameObject>("Balloon");
         balloonSprites = Resources.LoadAll<Sprite>("Sprites/balloons");
+        PlayerPrefs.SetInt("bCount", balloonCount); //sets the text for the total number of starting balloons
     }
 	
 	// Update is called once per frame
@@ -23,6 +24,7 @@ public class DropBalloon : MonoBehaviour {
             dropped = true;
             dropBallon();
         }
+        balloonCount = PlayerPrefs.GetInt("bCount"); //Sets the balloonCount to the number displayed
     }
 
     void dropBallon() {
@@ -34,6 +36,7 @@ public class DropBalloon : MonoBehaviour {
             spawned.transform.Rotate(new Vector3(0, 0, Random.Range(1, 360)));
 
             spawned.GetComponent<BalloonBehaviour>().sprite = balloonSprites[Random.Range(0, 3)];
+            PlayerPrefs.SetInt("bCount", balloonCount--); //Subtracts a balloon on the display
         }
     }
 }

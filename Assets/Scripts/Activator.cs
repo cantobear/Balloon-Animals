@@ -54,7 +54,7 @@ public class Activator : MonoBehaviour {
 
     void AddScore()
     {
-        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + gm.GetComponent<ddrGameManager>().GetScore());
+        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + 2);
     }
 
     IEnumerator Pressed()
