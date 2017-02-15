@@ -4,6 +4,7 @@ using System.Collections;
 public class BalloonBehaviour : MonoBehaviour {
 
     public Sprite sprite;
+    public float gravity;
 
     // Use this for initialization
     void Start() {
@@ -12,10 +13,10 @@ public class BalloonBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        GetComponent<Rigidbody>().AddForce(new Vector3(0,gravity,0), ForceMode.Acceleration);
     }
 
-    void OnCollisionEnter2D(Collision2D coll) {
+    void OnCollisionEnter(Collision coll) {
         if (coll.collider.name == "Ground")
             onGrounded();
     }
@@ -25,7 +26,7 @@ public class BalloonBehaviour : MonoBehaviour {
     }
 
     public virtual void onPunch() {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * 2);
+        GetComponent<Rigidbody>().AddForce(Vector2.up * 2);
     }
 
     public virtual void onGrounded() {

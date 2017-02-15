@@ -49,7 +49,7 @@ public class Turrnet : MonoBehaviour {
         GameObject arrow = Instantiate<GameObject>(arrowPrefab);
         arrow.transform.position = turretDirection.position;
         arrow.transform.rotation = Quaternion.Euler(0f, 0f, angle);
-        arrow.GetComponent<Rigidbody2D>().velocity = arrow.transform.up * speed;
+        arrow.GetComponent<Rigidbody>().velocity = arrow.transform.up * speed;
 
     }
 }

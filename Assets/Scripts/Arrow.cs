@@ -4,6 +4,7 @@ using System.Collections;
 public class Arrow : MonoBehaviour {
 
     public float despawnTime = 5f;
+    public float gravity;
 
 	// Use this for initialization
 	void Start () {
@@ -12,19 +13,20 @@ public class Arrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (GetComponent<Rigidbody2D>().velocity.magnitude > 0.1f) {
-            Vector3 direction = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
+        if (GetComponent<Rigidbody>().velocity.magnitude > 0.1f) {
+            Vector3 direction = gameObject.GetComponent<Rigidbody>().velocity.normalized;
             transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
         }
+        GetComponent<Rigidbody>().AddForce(new Vector3(0, gravity, 0), ForceMode.Acceleration);
     }
 
-    void OnCollisionEnter2D (Collision2D c) {
+    void OnCollisionEnter (Collision c) {
         if (c.collider.CompareTag("Wall") || c.collider.CompareTag("Player")) {
-            RaycastHit2D[] hit = Physics2D.LinecastAll(transform.position - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, transform.position + transform.up * 3f * GetComponent<BoxCollider2D>().bounds.extents.y);
+            RaycastHit[] hit = Physics.RaycastAll(transform.position - transform.up * GetComponent<BoxCollider>().bounds.extents.y, transform.position + transform.up * 3f * GetComponent<BoxCollider>().bounds.extents.y);
             bool didHit = false;
-            foreach (RaycastHit2D x in hit) {
+            foreach (RaycastHit x in hit) {
                 if (x.collider.CompareTag(c.collider.tag)) {
-                    GetComponent<Rigidbody2D>().isKinematic = true;
+                    GetComponent<Rigidbody>().isKinematic = true;
                     didHit = true;
                     transform.position += new Vector3(x.point.x, x.point.y) - transform.position;
                     break;
@@ -33,8 +35,8 @@ public class Arrow : MonoBehaviour {
             if (didHit) {
                 if (c.collider.CompareTag("Player"))
                     transform.parent = c.transform;
-                GetComponent<Rigidbody2D>().isKinematic = true;
-                GetComponent<BoxCollider2D>().isTrigger = true;
+                GetComponent<Rigidbody>().isKinematic = true;
+                GetComponent<BoxCollider>().isTrigger = true;
                 StartCoroutine("deleteAfterDelay", despawnTime);
             }
             if (c.collider.name == "Ground") {

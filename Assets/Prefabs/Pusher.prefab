@@ -20,12 +20,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010009396030}
   - 212: {fileID: 212000012446214710}
-  - 61: {fileID: 61000013614976042}
-  - 50: {fileID: 50000012173897718}
   - 114: {fileID: 114000013735878728}
-  m_Layer: 0
+  - 54: {fileID: 54000012443655646}
+  - 65: {fileID: 65000011761286232}
+  - 95: {fileID: 95000010925560580}
+  m_Layer: 17
   m_Name: Pusher
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,37 +44,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &50000012173897718
-Rigidbody2D:
-  serializedVersion: 2
+--- !u!54 &54000012443655646
+Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011055078560}
-  m_UseAutoMass: 0
+  serializedVersion: 2
   m_Mass: 1
-  m_LinearDrag: 0
+  m_Drag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_Constraints: 120
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!61 &61000013614976042
-BoxCollider2D:
+--- !u!65 &65000011761286232
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011055078560}
+  m_Material: {fileID: 13400000, guid: 0f12a6de7f12b6a43a3c30bc4b4e9310, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95000010925560580
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011055078560}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 4338d7eebe8d173458382c1edfe0259f, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5921d943da319ad4ba00e25ff9597f6d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000013735878728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,11 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2aef9de4642e8449872779beddff22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: -29.4
   horizontalControl: Horizontal
   jumpControl: Jump
   maxHorizontalSpeed: 8
   horizontalAccel: 50
-  jumpAccel: 450
+  jumpAccel: 1000
   deceleration: 0.5
 --- !u!212 &212000012446214710
 SpriteRenderer:
