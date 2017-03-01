@@ -22,21 +22,36 @@ public class DropBalloon : MonoBehaviour {
             dropped = false;
         else if (!dropped) {
             dropped = true;
-            dropBallon();
+            if (balloonCount > 0) {
+                //dropBalloon();
+            }
+            dropBalloons(10);
         }
         balloonCount = PlayerPrefs.GetInt("bCount"); //Sets the balloonCount to the number displayed
     }
 
-    void dropBallon() {
-        if (balloonCount > 0) {
-            --balloonCount;
-            GameObject spawned = Instantiate<GameObject>(balloon);
-            spawned.transform.position = transform.position;
-            spawned.transform.Translate(Vector3.down * 1.8f);
-            spawned.transform.Rotate(new Vector3(0, 0, Random.Range(1, 360)));
+    GameObject dropBalloon() {
+        --balloonCount;
+        GameObject spawned = Instantiate<GameObject>(balloon);
+        spawned.transform.position = transform.position;
+        spawned.transform.Translate(Vector3.down * 1.8f);
+        spawned.transform.Rotate(new Vector3(0, 0, Random.Range(1, 360)));
 
-            spawned.GetComponent<BalloonBehaviour>().sprite = balloonSprites[Random.Range(0, 3)];
-            PlayerPrefs.SetInt("bCount", balloonCount--); //Subtracts a balloon on the display
+        spawned.GetComponent<BalloonBehaviour>().sprite = balloonSprites[Random.Range(0, 3)];
+        PlayerPrefs.SetInt("bCount", balloonCount--); //Subtracts a balloon on the display
+        return spawned;
+    }
+
+    void dropBalloons(int count) {
+        StartCoroutine("dropBalloonsCoroutine", Mathf.Min(count, balloonCount));
+    }
+
+
+    IEnumerator dropBalloonsCoroutine(int count) {
+        for (int i = count; i > 0; --i) {
+            GameObject spawned = dropBalloon();
+            spawned.transform.position += new Vector3(Random.Range(-0.6f, 0.6f), Random.Range(-1f, 0.1f));
+            yield return new WaitForSeconds(0.1f/count);
         }
     }
 }

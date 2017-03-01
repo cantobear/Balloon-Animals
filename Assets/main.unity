@@ -129,6 +129,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 54000012443655646, guid: 9f025585299a353439fe83e6911a5c9e,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f025585299a353439fe83e6911a5c9e, type: 2}
   m_IsPrefabParent: 0
@@ -706,6 +711,11 @@ Prefab:
         type: 2}
       propertyPath: gravity
       value: -9.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54000013715882818, guid: 901a634400b73aa47b515ccf0bd9bad8,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 901a634400b73aa47b515ccf0bd9bad8, type: 2}
