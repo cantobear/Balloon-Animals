@@ -36,7 +36,7 @@ public class Arrow : MonoBehaviour {
                 if (c.collider.CompareTag("Player"))
                     transform.parent = c.transform;
                 GetComponent<Rigidbody>().isKinematic = true;
-                GetComponent<BoxCollider>().isTrigger = true;
+                GetComponent<BoxCollider>().enabled = false;
                 StartCoroutine("deleteAfterDelay", despawnTime);
             }
             if (c.collider.name == "Ground") {
@@ -44,9 +44,11 @@ public class Arrow : MonoBehaviour {
                 StartCoroutine("deleteAfterDelay", despawnTime);
             }
         }
-        else if (c.collider.CompareTag("Balloon")) {
-            c.gameObject.GetComponent<BalloonBehaviour>().onHit();
-        }
+    }
+
+    void OnTriggerEnter(Collider c) {
+        if (c.CompareTag("Balloon"))
+            c.transform.parent.GetComponent<BalloonBehaviour>().onHit();
     }
 
     IEnumerator deleteAfterDelay(float delay) {
