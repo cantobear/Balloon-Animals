@@ -3,7 +3,9 @@ using System.Collections;
 
 public class DropBalloon : MonoBehaviour {
 
+    public float balloonDelay = 0.1f;
     public string dropControl = "Drop";
+    public string dropAllControl = "Drop All";
     public int balloonCount = 100;
     bool dropped = false;
     GameObject balloon;
@@ -18,14 +20,14 @@ public class DropBalloon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetAxis(dropControl) == 0)
+        if (Input.GetAxis(dropControl) == 0 && Input.GetAxis(dropAllControl) == 0)
             dropped = false;
         else if (!dropped) {
             dropped = true;
-            if (balloonCount > 0) {
-                //dropBalloon();
-            }
-            dropBalloons(10);
+            if (balloonCount > 0 && Input.GetAxis(dropControl) != 0)
+                dropBalloon();
+            else
+                dropBalloons(10);
         }
         balloonCount = PlayerPrefs.GetInt("bCount"); //Sets the balloonCount to the number displayed
     }
@@ -51,7 +53,7 @@ public class DropBalloon : MonoBehaviour {
         for (int i = count; i > 0; --i) {
             GameObject spawned = dropBalloon();
             spawned.transform.position += new Vector3(Random.Range(-0.6f, 0.6f), Random.Range(-1f, 0.1f));
-            yield return new WaitForSeconds(0.1f/count);
+            yield return new WaitForSeconds(balloonDelay/count);
         }
     }
 }

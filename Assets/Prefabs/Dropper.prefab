@@ -100,7 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4130fe5e2f9d33c458feaa387dafbf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  balloonDelay: 0.1
   dropControl: Drop
+  dropAllControl: Drop All
   balloonCount: 100
 --- !u!114 &114000011477572636
 MonoBehaviour:
