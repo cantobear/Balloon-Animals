@@ -24,6 +24,7 @@ public class ddrSpawner : MonoBehaviour {
     {
         count = 0;
         InvokeRepeating("Spawn", delay1, spawnTime);
+        
     }
 
     void Spawn()
@@ -33,16 +34,17 @@ public class ddrSpawner : MonoBehaviour {
         Instantiate(notes[enemyIndex], transform.position, transform.rotation);
         count++;
         if (count >= balloonsPerInterval)
-        {   
+        {
             PlayerPrefs.SetInt("bCount", PlayerPrefs.GetInt("bCount") + PlayerPrefs.GetInt("Score"));
             PlayerPrefs.SetInt("Score", 0);
             CancelInvoke();
             InvokeR(intervalDelay);
         }
+
     }
 
     // Update is called once per frame
     void Update () {
         
-	}
+    }
 }
