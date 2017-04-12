@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Turrnet : MonoBehaviour {
 
+    public string shootControl = "Shoot";
     public float firePower = 75;
     GameObject arrowPrefab;
     float charge = 0;
@@ -20,7 +21,7 @@ public class Turrnet : MonoBehaviour {
 	void Update () {
         Vector3 direction = (new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, turretDirection.position.z) - turretDirection.position).normalized;
         turretDirection.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
-        if (Input.GetAxis("Fire1") == 1) {
+        if (Input.GetAxis(shootControl) == 1) {
             charge = Mathf.Min(charge + Time.deltaTime, 0.5f);
         }
         else if (charge > 0) {

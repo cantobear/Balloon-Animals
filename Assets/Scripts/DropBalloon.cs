@@ -22,12 +22,16 @@ public class DropBalloon : MonoBehaviour {
 	void Update () {
         if (Input.GetAxis(dropControl) == 0 && Input.GetAxis(dropAllControl) == 0)
             dropped = false;
-        else if (!dropped) {
+        else if (!dropped)
+        {
             dropped = true;
-            if (balloonCount > 0 && Input.GetAxis(dropControl) != 0)
-                dropBalloon();
-            else
-                dropBalloons(10);
+            if (balloonCount > 0)
+            {
+                if (Input.GetAxis(dropControl) != 0)
+                    dropBalloon();
+                else if (Input.GetAxis(dropAllControl) != 0)
+                    dropBalloons(10);
+            }
         }
         balloonCount = PlayerPrefs.GetInt("bCount"); //Sets the balloonCount to the number displayed
     }
