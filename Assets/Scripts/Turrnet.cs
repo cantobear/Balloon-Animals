@@ -9,8 +9,11 @@ public class Turrnet : MonoBehaviour {
     float charge = 0;
     Transform turretDirection;
 
-	// Use this for initialization
-	void Start () {
+    public string horizontalControl;
+    public string verticalControl;
+
+    // Use this for initialization
+    void Start () {
         arrowPrefab = Resources.Load<GameObject>("Arrow");
         turretDirection = new GameObject("TurrentDirection").transform;
         turretDirection.position = transform.position;
@@ -19,7 +22,9 @@ public class Turrnet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 direction = (new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, turretDirection.position.z) - turretDirection.position).normalized;
+        Vector3 direction = new Vector3(Input.GetAxis(horizontalControl), Input.GetAxis(verticalControl)).normalized;
+        if (direction == Vector3.zero)
+            direction = (new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, turretDirection.position.z) - turretDirection.position).normalized;
         turretDirection.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
         if (Input.GetAxis(shootControl) == 1) {
             charge = Mathf.Min(charge + Time.deltaTime, 0.5f);
