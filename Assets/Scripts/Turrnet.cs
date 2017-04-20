@@ -72,6 +72,5 @@ public class Turrnet : MonoBehaviour {
         arrow.transform.position = turretDirection.position;
         arrow.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         arrow.GetComponent<Rigidbody>().velocity = arrow.transform.up * speed;
-
     }
 }
