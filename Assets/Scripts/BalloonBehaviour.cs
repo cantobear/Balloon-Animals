@@ -33,8 +33,8 @@ public class BalloonBehaviour : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    public virtual void onPunch() {
-        GetComponent<Rigidbody>().AddForce(Vector2.up * 2);
+    public virtual void onPunch(Vector3 fromPos, float velocity) {
+        GetComponent<Rigidbody>().velocity = (transform.position - fromPos) * velocity;
     }
 
     public virtual void onGrounded() {
