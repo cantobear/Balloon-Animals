@@ -43,17 +43,29 @@ public class Turrnet : MonoBehaviour {
                 chargeTimePassed = Mathf.Min(chargeTimePassed + Time.deltaTime / chargeTime, 1);
                 charge = Mathf.Pow(chargeTimePassed, 0.4f);
             }
+            else if (charge == 1) {
+                fireDirection(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 85, charge * firePower);
+                fireDirection(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90, charge * firePower);
+                fireDirection(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 95, charge * firePower);
+                charge = chargeTimePassed = 0;
+                --_arrowCount;
+            }
             else if (charge > 0) {
                 fireDirection(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90, charge * firePower);
                 charge = chargeTimePassed = 0;
                 --_arrowCount;
             }
-            drawTragectory(turrentDirection.position, turrentDirection.up * charge * firePower);
+            if (charge == 1) {
+                drawTragectory(turrentDirection.position, turrentDirection.up * charge * firePower, Color.yellow);
+            } else
+                drawTragectory(turrentDirection.position, turrentDirection.up * charge * firePower, Color.white);
         }
     }
 
-    void drawTragectory(Vector3 startPos, Vector3 velocity) {
+    void drawTragectory(Vector3 startPos, Vector3 velocity, Color color) {
         LineRenderer line = GetComponent<LineRenderer>();
+        line.startColor = color;
+        line.endColor = color;
         line.SetVertexCount(50);
         Vector2 curPos = startPos;
         Vector2 vel = velocity;
