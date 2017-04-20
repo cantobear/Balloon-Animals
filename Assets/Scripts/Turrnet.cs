@@ -9,7 +9,7 @@ public class Turrnet : MonoBehaviour {
     private float charge = 0f;
     public float chargeTime;
     private float chargeTimePassed;
-    Transform turretDirection;
+    Transform turrentDirection;
 
     public int maxArrowCount;
     private float _arrowCount;
@@ -24,17 +24,17 @@ public class Turrnet : MonoBehaviour {
     // Use this for initialization
     void Start () {
         arrowPrefab = Resources.Load<GameObject>("Arrow");
-        turretDirection = new GameObject("TurrentDirection").transform;
-        turretDirection.position = transform.position;
-        turretDirection.SetParent(transform);
+        turrentDirection = new GameObject("TurrentDirection").transform;
+        turrentDirection.position = transform.position;
+        turrentDirection.SetParent(transform);
     }
 	
 	// Update is called once per frame
 	void Update () {
         Vector3 direction = new Vector3(Input.GetAxis(horizontalControl), Input.GetAxis(verticalControl)).normalized;
         if (direction == Vector3.zero)
-            direction = (new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, turretDirection.position.z) - turretDirection.position).normalized;
-        turretDirection.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
+            direction = (new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, turrentDirection.position.z) - turrentDirection.position).normalized;
+        turrentDirection.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
 
         _arrowCount = Mathf.Min(arrowCount + Time.deltaTime / arrowRespawnTime, maxArrowCount);
 
@@ -48,7 +48,7 @@ public class Turrnet : MonoBehaviour {
                 charge = chargeTimePassed = 0;
                 --_arrowCount;
             }
-            drawTragectory(turretDirection.position, turretDirection.up * charge * firePower);
+            drawTragectory(turrentDirection.position, turrentDirection.up * charge * firePower);
         }
     }
 
@@ -69,7 +69,7 @@ public class Turrnet : MonoBehaviour {
 
     void fireDirection(float angle, float speed) {
         GameObject arrow = Instantiate<GameObject>(arrowPrefab);
-        arrow.transform.position = turretDirection.position;
+        arrow.transform.position = turrentDirection.position;
         arrow.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         arrow.GetComponent<Rigidbody>().velocity = arrow.transform.up * speed;
     }
