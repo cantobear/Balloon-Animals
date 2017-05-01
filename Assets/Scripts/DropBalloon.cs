@@ -59,7 +59,7 @@ public class DropBalloon : MonoBehaviour {
         for (int i = count; i > 0; --i) {
             GameObject spawned = dropBalloon();
             spawned.transform.position += new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
-            spawned.GetComponent<Rigidbody>().velocity += Vector3.right * Random.Range(-3f, 3f) + Vector3.up * Random.Range(1f, 2f);
+            spawned.GetComponent<Rigidbody>().velocity += Vector3.right * Random.Range(-2f, 2f) + Vector3.up * Random.Range(3f, 4f);
             yield return new WaitForSeconds(balloonDelay/count);
         }
     }

@@ -25,7 +25,7 @@ public class BalloonBehaviour : MonoBehaviour {
         rigidbody.velocity += windVector;
         float magnitude = rigidbody.velocity.magnitude;
         if (magnitude > maxVelocity)
-            rigidbody.velocity = rigidbody.velocity * ((magnitude - Mathf.Pow(magnitude/2, 2) * Time.fixedDeltaTime) / magnitude);
+            rigidbody.velocity -= rigidbody.velocity * Mathf.Min(Mathf.Pow((magnitude - maxVelocity)/2, 1.4f) * (deceleration/magnitude) * Time.fixedDeltaTime, 1);//((magnitude - Mathf.Pow(magnitude/2, 2) * Time.fixedDeltaTime) / magnitude);
 
         }
 

@@ -101,8 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   gravity: -0.98
-  maxVelocity: 2
-  deceleration: 15
+  maxVelocity: 1
+  deceleration: 4
+  windVector: {x: 0, y: 0, z: 0}
 --- !u!135 &135000011566508780
 SphereCollider:
   m_ObjectHideFlags: 1
