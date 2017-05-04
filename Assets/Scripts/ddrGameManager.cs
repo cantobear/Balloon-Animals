@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ddrGameManager : MonoBehaviour {
 
-    int multiplier = 1;
+    public int PointsPerBalloon;
     int streak = 0;
 
 	void Start () {
@@ -17,7 +17,7 @@ public class ddrGameManager : MonoBehaviour {
 
     public int GetScore()
     {
-        return 2 * multiplier;
+        return PointsPerBalloon;
     }
 
     void OnTriggerEnter2D(Collider2D col)
