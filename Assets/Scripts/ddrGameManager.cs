@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ddrGameManager : MonoBehaviour {
 
-    public int PointsPerBalloon;
+    public int PointsPerBalloon = 2;
     int streak = 0;
 
 	void Start () {
