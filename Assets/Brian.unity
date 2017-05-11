@@ -644,6 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70e76a08e9b9df44a01d3338f57a288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PointsPerBalloon: 0
 --- !u!61 &253012553
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2256,6 +2257,11 @@ Prefab:
         type: 2}
       propertyPath: balloonDelay
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011208688838, guid: 901a634400b73aa47b515ccf0bd9bad8,
+        type: 2}
+      propertyPath: balloonCount
+      value: 10000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 901a634400b73aa47b515ccf0bd9bad8, type: 2}

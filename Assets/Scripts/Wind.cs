@@ -4,31 +4,26 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour {
 
-    public Vector3 _windVector;
+    private Vector3 _windVector;
+    public Vector3 speedRange;
     public Vector3 windVector {
-        get { return _windVector; }
+        get { return _windVector + new Vector3(Random.Range(-speedRange.x, speedRange.x), Random.Range(-speedRange.y, speedRange.y), Random.Range(-speedRange.z, speedRange.z)); }
         set { _windVector = value; }
     }
     public Vector3 windDirection {
         get { return _windVector.normalized; }
+        set { _windVector = value.normalized * _windVector.magnitude; }
     }
-    public float windSpeed {
+    public virtual float windSpeed {
         get { return _windVector.magnitude; }
+        set { _windVector = _windVector.normalized * value; }
     }
 
-    public void setWindDirection(Vector3 direction) {
-        _windVector = direction.normalized * _windVector.magnitude;
+    public void destroy(float time = 0) {
+        StartCoroutine("delayDestroy", time);
     }
 
-    public void setWindSpeed(float speed) {
-        _windVector = _windVector.normalized * speed;
-    }
-
-    public void destroyAfter(float time) {
-        StartCoroutine("destroy", time);
-    }
-
-    private IEnumerator destroy(float time) {
+    private IEnumerator delayDestroy(float time) {
         yield return new WaitForSeconds(time);
         transform.position = Vector3.down * 1000;
         Destroy(gameObject, 1f);
