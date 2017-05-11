@@ -7,6 +7,12 @@ public class BalloonBehaviour : MonoBehaviour {
     public float gravity;
     public float maxVelocity;
     public float deceleration;
+    private Rigidbody rigidbody;
+    public Vector3 windVector;
+
+    void Awake() {
+        rigidbody = GetComponent<Rigidbody>();
+    }
 
     // Use this for initialization
     void Start() {
@@ -15,18 +21,29 @@ public class BalloonBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        GetComponent<Rigidbody>().AddForce(new Vector3(0,gravity,0), ForceMode.Acceleration);
-        float magnitude = GetComponent<Rigidbody>().velocity.magnitude;
+        rigidbody.AddForce(new Vector3(0,gravity,0), ForceMode.Acceleration);
+        rigidbody.velocity += windVector;
+        float magnitude = rigidbody.velocity.magnitude;
         if (magnitude > maxVelocity)
-            GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity * ((magnitude - Mathf.Pow(magnitude/2, 2) * Time.fixedDeltaTime) / magnitude);
-        float angMagnitude = GetComponent<Rigidbody>().angularVelocity.magnitude;
-        //if (angMagnitude > 1)
-        //    GetComponent<Rigidbody>().angularVelocity = GetComponent<Rigidbody>().angularVelocity / ((angMagnitude - 10 * Time.fixedDeltaTime) / angMagnitude);
-    }
+            rigidbody.velocity -= rigidbody.velocity * Mathf.Min(Mathf.Pow((magnitude - maxVelocity)/2, 1.4f) * (deceleration/magnitude) * Time.fixedDeltaTime, 1);//((magnitude - Mathf.Pow(magnitude/2, 2) * Time.fixedDeltaTime) / magnitude);
+
+        }
 
     void OnCollisionEnter(Collision coll) {
         if (coll.collider.name == "Ground")
             onGrounded();
+    }
+
+    void OnTriggerEnter(Collider coll) {
+        if (coll.CompareTag("Wind")) {
+            addWind(coll.gameObject.GetComponent<Wind>().windVector);
+        }
+    }
+
+    void OnTriggerExit(Collider coll) {
+        if (coll.CompareTag("Wind")) {
+            removeWind(coll.gameObject.GetComponent<Wind>().windVector);
+        }
     }
 
     public virtual void onHit() {
@@ -34,7 +51,15 @@ public class BalloonBehaviour : MonoBehaviour {
     }
 
     public virtual void onPunch(Vector3 fromPos, float velocity) {
-        GetComponent<Rigidbody>().velocity = (transform.position - fromPos) * velocity;
+        rigidbody.velocity = (transform.position - fromPos) * velocity;
+    }
+
+    public virtual void addWind(Vector3 v) {
+        windVector += v;
+    }
+
+    public virtual void removeWind(Vector3 v) {
+        windVector -= v;
     }
 
     public virtual void onGrounded() {
