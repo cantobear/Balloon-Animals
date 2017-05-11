@@ -104,6 +104,10 @@ MonoBehaviour:
   dropControl: Drop
   dropAllControl: Drop All
   balloonCount: 100
+  balloons:
+  - {fileID: 1000013457798366, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
+  - {fileID: 1531685226931992, guid: 92b3ab01605c60a4f920c2f2a9d09b85, type: 2}
+  - {fileID: 1408972341922394, guid: b6b49650b8d83f646b690e8b1ea0322e, type: 2}
 --- !u!114 &114000011477572636
 MonoBehaviour:
   m_ObjectHideFlags: 1

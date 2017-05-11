@@ -8,7 +8,8 @@ public class BalloonBehaviour : MonoBehaviour {
     public float maxVelocity;
     public float deceleration;
     private Rigidbody rigidbody;
-    public Vector3 windVector;
+    private Vector3 windVector;
+    public GameObject PoppedBalloonParticles;
 
     void Awake() {
         rigidbody = GetComponent<Rigidbody>();
@@ -47,6 +48,7 @@ public class BalloonBehaviour : MonoBehaviour {
     }
 
     public virtual void onHit() {
+        Destroy(Instantiate<GameObject>(PoppedBalloonParticles, transform.position, transform.rotation, transform.parent), 0.5f);
         Destroy(gameObject);
     }
 
