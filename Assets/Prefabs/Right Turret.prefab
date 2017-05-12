@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2cb1e09b21c9547ab003c647c1ee30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootControl: Shoot
+  shootControl: ShootRight
   firePower: 35
   chargeTime: 1
   maxArrowCount: 5
