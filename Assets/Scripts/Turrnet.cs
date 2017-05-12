@@ -66,17 +66,19 @@ public class Turrnet : MonoBehaviour {
         LineRenderer line = GetComponent<LineRenderer>();
         line.startColor = color;
         line.endColor = color;
-        line.SetVertexCount(50);
+        line.SetVertexCount(25);
         Vector2 curPos = startPos;
         Vector2 vel = velocity;
 
-        for(int i = 0; i < 100; i++) {
+        for(int i = 0; i < 50; i++) {
             if (i%2 == 0)
                 line.SetPosition(i/2, curPos);
             vel += Physics2D.gravity * 3 * Time.fixedDeltaTime;
             curPos += vel * Time.fixedDeltaTime;
 
         }
+
+        line.materials[0].mainTextureScale = new Vector3(5, 1, 1);
     }
 
     void fireDirection(float angle, float speed) {
