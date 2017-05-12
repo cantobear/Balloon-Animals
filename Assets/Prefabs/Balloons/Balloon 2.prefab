@@ -105,6 +105,8 @@ MonoBehaviour:
   deceleration: 4
   PoppedBalloonParticles: {fileID: 1153515686731240, guid: 98ee9e3eccbbe1841a11e1ea4d89a71f,
     type: 2}
+  balloonValue: 1
+  gameStateManager: {fileID: 0}
 --- !u!135 &135420534588406172
 SphereCollider:
   m_ObjectHideFlags: 1

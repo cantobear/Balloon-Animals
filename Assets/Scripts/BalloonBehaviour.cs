@@ -10,6 +10,8 @@ public class BalloonBehaviour : MonoBehaviour {
     private Rigidbody rigidbody;
     private Vector3 windVector;
     public GameObject PoppedBalloonParticles;
+    public int balloonValue;
+    public static GameStateManager gameStateManager;
 
     void Awake() {
         rigidbody = GetComponent<Rigidbody>();
@@ -48,6 +50,11 @@ public class BalloonBehaviour : MonoBehaviour {
     }
 
     public virtual void onHit() {
+        pop();
+    }
+
+    public virtual void pop() {
+        gameStateManager.poppedBalloon(balloonValue);
         Destroy(Instantiate<GameObject>(PoppedBalloonParticles, transform.position, transform.rotation, transform.parent), 0.5f);
         Destroy(gameObject);
     }
@@ -65,6 +72,7 @@ public class BalloonBehaviour : MonoBehaviour {
     }
 
     public virtual void onGrounded() {
+        gameStateManager.lostBalloon(balloonValue);
         Destroy(gameObject);
     }
 }
