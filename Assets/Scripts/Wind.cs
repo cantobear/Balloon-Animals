@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour {
 
-    private Vector3 _windVector;
-    public Vector3 speedRange;
-    public Vector3 windVector {
-        get { return _windVector + new Vector3(Random.Range(-speedRange.x, speedRange.x), Random.Range(-speedRange.y, speedRange.y), Random.Range(-speedRange.z, speedRange.z)); }
+    private Vector2 _windVector;
+    public Vector2 speedRange;
+    public Vector2 windVector {
+        get { return _windVector + new Vector2(Random.Range(-speedRange.x, speedRange.x), Random.Range(-speedRange.y, speedRange.y)); }
         set { _windVector = value; }
     }
-    public Vector3 windDirection {
+    public Vector2 windDirection {
         get { return _windVector.normalized; }
         set { _windVector = value.normalized * _windVector.magnitude; }
     }

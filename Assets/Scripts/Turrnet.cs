@@ -66,7 +66,7 @@ public class Turrnet : MonoBehaviour {
         LineRenderer line = GetComponent<LineRenderer>();
         line.startColor = color;
         line.endColor = color;
-        line.SetVertexCount(25);
+        line.positionCount = 25;
         Vector2 curPos = startPos;
         Vector2 vel = velocity;
 
@@ -85,6 +85,6 @@ public class Turrnet : MonoBehaviour {
         GameObject arrow = Instantiate<GameObject>(arrowPrefab);
         arrow.transform.position = turrentDirection.position;
         arrow.transform.rotation = Quaternion.Euler(0f, 0f, angle);
-        arrow.GetComponent<Rigidbody>().velocity = arrow.transform.up * speed;
+        arrow.GetComponent<Rigidbody2D>().velocity = arrow.transform.up * speed;
     }
 }

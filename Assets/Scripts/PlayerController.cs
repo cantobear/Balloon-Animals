@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Collider2D))]
 public class PlayerController : MonoBehaviour
 {
 
     Animator anim;
-    public float gravity;
+    //public float gravity;
     public string horizontalControl = "Horizontal";
     public string jumpControl = "Jump";
 
-	private Rigidbody rb;
+	private Rigidbody2D rb;
 	private bool grounded;
-	private Collider coll;
+	private Collider2D coll;
 
 	public float maxHorizontalSpeed = 7f;
 	public float horizontalAccel = 50f;
@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-		rb = GetComponent<Rigidbody>();
-		coll = GetComponent<Collider>();
+		rb = GetComponent<Rigidbody2D>();
+		coll = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
     }
 
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 	}
 	void FixedUpdate ()
     {
-        GetComponent<Rigidbody>().AddForce(new Vector3(0,gravity,0), ForceMode.Acceleration);
+        //rb.AddForce(new Vector3(0,gravity,0), ForceMode2D.Force);
         if (grounded)
         {
             rb.velocity = new Vector3(rb.velocity.x - Mathf.Sign(rb.velocity.x) * Mathf.Min(Mathf.Abs(rb.velocity.x), deceleration) , rb.velocity.y);
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 		rb.velocity = velocity;
     }
 
-    void OnCollisionEnter (Collision coll) {
+    void OnCollisionEnter2D (Collision2D coll) {
         if (coll.collider.name.Contains("Ground")) {
             grounded = true;
             anim.SetBool("Jump", false); //stops jump animation

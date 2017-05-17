@@ -21,10 +21,13 @@ GameObject:
   - component: {fileID: 4000010474626384}
   - component: {fileID: 212000010191879220}
   - component: {fileID: 114000011477572636}
+  - component: {fileID: 50048432319109748}
+  - component: {fileID: 61634303426817502}
   - component: {fileID: 114000011208688838}
-  - component: {fileID: 54000013715882818}
-  - component: {fileID: 65000010665633382}
   - component: {fileID: 95000012166832660}
+  - component: {fileID: 65643294540573882}
+  - component: {fileID: 65869440511847868}
+  - component: {fileID: 65091836348621254}
   m_Layer: 17
   m_Name: Dropper
   m_TagString: Player
@@ -45,32 +48,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54000013715882818
-Rigidbody:
+--- !u!50 &50048432319109748
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014045486624}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 3
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 120
+  m_SleepingMode: 1
   m_CollisionDetection: 1
---- !u!65 &65000010665633382
+  m_Constraints: 4
+--- !u!61 &61634303426817502
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014045486624}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 4338d7eebe8d173458382c1edfe0259f, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2}
+  m_EdgeRadius: 0
+--- !u!65 &65091836348621254
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014045486624}
-  m_Material: {fileID: 13400000, guid: 0f12a6de7f12b6a43a3c30bc4b4e9310, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 0.2}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65643294540573882
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014045486624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65869440511847868
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014045486624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95000012166832660
 Animator:
@@ -100,10 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4130fe5e2f9d33c458feaa387dafbf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balloonDelay: 0.1
+  balloonDelay: 0
   dropControl: Drop
   dropAllControl: Drop All
-  balloonCount: 100
+  balloonCount: 10000
   balloons:
   - {fileID: 1000013457798366, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
   - {fileID: 1531685226931992, guid: 92b3ab01605c60a4f920c2f2a9d09b85, type: 2}
@@ -119,7 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2aef9de4642e8449872779beddff22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -29.4
   horizontalControl: Horizontal2
   jumpControl: Null
   maxHorizontalSpeed: 7

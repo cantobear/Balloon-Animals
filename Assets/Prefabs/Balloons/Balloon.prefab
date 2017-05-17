@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4000013566600264}
-  - component: {fileID: 135000012242081544}
-  m_Layer: 0
+  - component: {fileID: 58232909584224150}
+  m_Layer: 22
   m_Name: TriggerCollider
   m_TagString: Balloon
   m_Icon: {fileID: 0}
@@ -37,8 +37,8 @@ GameObject:
   - component: {fileID: 4000013796096692}
   - component: {fileID: 212000010149866936}
   - component: {fileID: 114000013407468336}
-  - component: {fileID: 54000013238152274}
-  - component: {fileID: 135000011566508780}
+  - component: {fileID: 50194032363416936}
+  - component: {fileID: 58255761297050882}
   m_Layer: 19
   m_Name: Balloon
   m_TagString: Balloon
@@ -73,21 +73,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54000013238152274
-Rigidbody:
+--- !u!50 &50194032363416936
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013457798366}
-  serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
   m_AngularDrag: 0.7
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0.25
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 56
+  m_SleepingMode: 1
   m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!58 &58232909584224150
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010596571036}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.049, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
+--- !u!58 &58255761297050882
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013457798366}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.049, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.345
 --- !u!114 &114000013407468336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,37 +135,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: a988e4eee5e02c443a3fd0aa95161256, type: 3}
-  gravity: -0.98
   maxVelocity: 1
-  deceleration: 4
+  deceleration: 3
   PoppedBalloonParticles: {fileID: 1448731015336210, guid: cc3e887af4087ad4cbf3fc3b422bdf74,
     type: 2}
   balloonValue: 1
-  gameStateManager: {fileID: 0}
---- !u!135 &135000011566508780
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013457798366}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.345
-  m_Center: {x: 0.049, y: 0, z: 0}
---- !u!135 &135000012242081544
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010596571036}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.4
-  m_Center: {x: 0.049, y: 0, z: 0}
 --- !u!212 &212000010149866936
 SpriteRenderer:
   m_ObjectHideFlags: 1

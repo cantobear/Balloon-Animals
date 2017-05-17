@@ -4,7 +4,7 @@ using System.Collections;
 public class Arrow : MonoBehaviour {
 
     public float despawnTime = 5f;
-    public float gravity;
+    //public float gravity;
 
 	// Use this for initialization
 	void Start () {
@@ -13,20 +13,20 @@ public class Arrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (GetComponent<Rigidbody>().velocity.magnitude > 0.1f) {
-            Vector3 direction = gameObject.GetComponent<Rigidbody>().velocity.normalized;
+        if (GetComponent<Rigidbody2D>().velocity.magnitude > 0.1f) {
+            Vector3 direction = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
             transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
         }
-        GetComponent<Rigidbody>().AddForce(new Vector3(0, gravity, 0), ForceMode.Acceleration);
+        //GetComponent<Rigidbody2D>().AddForce(new Vector3(0, gravity, 0), ForceMode.Acceleration);
     }
 
-    void OnCollisionEnter (Collision c) {
+    void OnCollisionEnter2D (Collision2D c) {
         if (c.collider.CompareTag("Wall") || c.collider.CompareTag("Player")) {
-            RaycastHit[] hit = Physics.RaycastAll(transform.position - transform.up * GetComponent<BoxCollider>().bounds.extents.y, transform.position + transform.up * 3f * GetComponent<BoxCollider>().bounds.extents.y);
+            RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, transform.position + transform.up * 3f * GetComponent<BoxCollider2D>().bounds.extents.y);
             bool didHit = false;
-            foreach (RaycastHit x in hit) {
+            foreach (RaycastHit2D x in hit) {
                 if (x.collider.CompareTag(c.collider.tag)) {
-                    GetComponent<Rigidbody>().isKinematic = true;
+                    GetComponent<Rigidbody2D>().simulated = false;
                     didHit = true;
                     transform.position += new Vector3(x.point.x, x.point.y) - transform.position;
                     break;
@@ -35,8 +35,8 @@ public class Arrow : MonoBehaviour {
             if (didHit) {
                 if (c.collider.CompareTag("Player"))
                     transform.parent = c.transform;
-                GetComponent<Rigidbody>().isKinematic = true;
-                GetComponent<BoxCollider>().enabled = false;
+                GetComponent<Rigidbody2D>().isKinematic = true;
+                GetComponent<BoxCollider2D>().enabled = false;
                 StartCoroutine("deleteAfterDelay", despawnTime);
             }
             if (c.collider.name == "Ground") {
@@ -46,7 +46,7 @@ public class Arrow : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter(Collider c) {
+    void OnTriggerEnter2D(Collider2D c) {
         if (c.CompareTag("Balloon"))
             c.transform.parent.GetComponent<BalloonBehaviour>().onHit();
     }

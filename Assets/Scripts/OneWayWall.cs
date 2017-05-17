@@ -5,7 +5,7 @@ using UnityEngine;
 public class OneWayWall : MonoBehaviour {
 
     public float distanceToTrigger;
-    private Collider col;
+    private Collider2D col;
 
 	void Start () {
         //creating the trigger
@@ -13,7 +13,7 @@ public class OneWayWall : MonoBehaviour {
         trigger.AddComponent<TriggerDetection>();
         trigger.tag = tag;
         trigger.layer = gameObject.layer;
-        BoxCollider box = trigger.AddComponent<BoxCollider>();
+        BoxCollider2D box = trigger.AddComponent<BoxCollider2D>();
         box.isTrigger = true;
         //setting transform
         trigger.transform.parent = transform;
@@ -24,19 +24,19 @@ public class OneWayWall : MonoBehaviour {
         scale.x = (scale.x - distanceToTrigger) / scale.x;
         scale.y = (scale.y - distanceToTrigger) / scale.y + 1;
         //setting collider
-        box.center = new Vector3(box.center.x, 0.5f, box.center.z);
+        box.offset = new Vector2(box.offset.x, 0.5f);
         box.size = scale;
 
 
-        col = GetComponent<Collider>();
+        col = GetComponent<Collider2D>();
     }
 	
-	protected void enableCollision(Collider col) {
-        Physics.IgnoreCollision(this.col, col, false);
+	protected void enableCollision(Collider2D col) {
+        Physics2D.IgnoreCollision(this.col, col, false);
     }
 
-    protected void disableCollision(Collider col) {
-        Physics.IgnoreCollision(this.col, col);
+    protected void disableCollision(Collider2D col) {
+        Physics2D.IgnoreCollision(this.col, col);
     }
 
     private class TriggerDetection : MonoBehaviour {
@@ -46,12 +46,12 @@ public class OneWayWall : MonoBehaviour {
             parent = transform.parent.GetComponent<OneWayWall>();
         }
 
-        void OnTriggerEnter(Collider col) {
+        void OnTriggerEnter2D(Collider2D col) {
             if (!col.CompareTag("Player"))
                 parent.disableCollision(col);
         }
 
-        void OnTriggerExit(Collider col) {
+        void OnTriggerExit2D(Collider2D col) {
             parent.enableCollision(col);
         }
     }

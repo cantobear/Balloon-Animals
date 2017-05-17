@@ -4,17 +4,17 @@ using System.Collections;
 public class BalloonBehaviour : MonoBehaviour {
 
     public Sprite sprite;
-    public float gravity;
+    //public float gravity;
     public float maxVelocity;
     public float deceleration;
-    private Rigidbody rigidbody;
-    private Vector3 windVector;
+    private Rigidbody2D rigidbody;
+    private Vector2 windVector;
     public GameObject PoppedBalloonParticles;
     public int balloonValue;
     public static GameStateManager gameStateManager;
 
     void Awake() {
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Use this for initialization
@@ -24,7 +24,7 @@ public class BalloonBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        rigidbody.AddForce(new Vector3(0,gravity,0), ForceMode.Acceleration);
+        //rigidbody.AddForce(new Vector3(0,gravity,0), ForceMode.Acceleration);
         rigidbody.velocity += windVector;
         float magnitude = rigidbody.velocity.magnitude;
         if (magnitude > maxVelocity)
@@ -32,18 +32,18 @@ public class BalloonBehaviour : MonoBehaviour {
 
         }
 
-    void OnCollisionEnter(Collision coll) {
+    void OnCollisionEnter2D(Collision2D coll) {
         if (coll.collider.name == "Ground")
             onGrounded();
     }
 
-    void OnTriggerEnter(Collider coll) {
+    void OnTriggerEnter2D(Collider2D coll) {
         if (coll.CompareTag("Wind")) {
             addWind(coll.gameObject.GetComponent<Wind>().windVector);
         }
     }
 
-    void OnTriggerExit(Collider coll) {
+    void OnTriggerExit2D(Collider2D coll) {
         if (coll.CompareTag("Wind")) {
             removeWind(coll.gameObject.GetComponent<Wind>().windVector);
         }
@@ -63,11 +63,11 @@ public class BalloonBehaviour : MonoBehaviour {
         rigidbody.velocity = (transform.position - fromPos) * velocity;
     }
 
-    public virtual void addWind(Vector3 v) {
+    public virtual void addWind(Vector2 v) {
         windVector += v;
     }
 
-    public virtual void removeWind(Vector3 v) {
+    public virtual void removeWind(Vector2 v) {
         windVector -= v;
     }
 
