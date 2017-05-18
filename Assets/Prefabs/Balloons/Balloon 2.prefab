@@ -140,6 +140,8 @@ MonoBehaviour:
   PoppedBalloonParticles: {fileID: 1153515686731240, guid: 98ee9e3eccbbe1841a11e1ea4d89a71f,
     type: 2}
   balloonValue: 1
+  maxHeat: 100
+  heatCoolDownPerSec: 20
 --- !u!212 &212332721084244976
 SpriteRenderer:
   m_ObjectHideFlags: 1

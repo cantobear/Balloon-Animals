@@ -15,6 +15,6 @@ public class ArrowCountUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        slide.value = turrent.arrowCount;
+        //slide.value = turrent.arrowCount;
 	}
 }
