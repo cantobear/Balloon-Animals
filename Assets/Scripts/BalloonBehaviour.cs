@@ -12,6 +12,7 @@ public class BalloonBehaviour : MonoBehaviour {
     public GameObject PoppedBalloonParticles;
     public int balloonValue;
     public static GameStateManager gameStateManager;
+    private int seed;
 
     void Awake() {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -20,6 +21,7 @@ public class BalloonBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start() {
         GetComponent<SpriteRenderer>().sprite = sprite;
+        seed = Random.Range(0, 1000);
     }
 
     // Update is called once per frame
@@ -39,13 +41,13 @@ public class BalloonBehaviour : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll) {
         if (coll.CompareTag("Wind")) {
-            addWind(coll.gameObject.GetComponent<Wind>().windVector);
+            addWind(coll.gameObject.GetComponent<Wind>().getRandomWindVector(seed));
         }
     }
 
     void OnTriggerExit2D(Collider2D coll) {
         if (coll.CompareTag("Wind")) {
-            removeWind(coll.gameObject.GetComponent<Wind>().windVector);
+            removeWind(coll.gameObject.GetComponent<Wind>().getRandomWindVector(seed));
         }
     }
 

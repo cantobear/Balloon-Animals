@@ -18,8 +18,8 @@ public class WindGenerator : MonoBehaviour {
             wind.transform.parent = transform;
             wind.transform.position = new Vector2(Random.Range(-collider.bounds.extents.x, collider.bounds.extents.x), Random.Range(-collider.bounds.extents.y, collider.bounds.extents.y));
             wind.transform.localScale = new Vector2(Random.Range(2f, 5f), Random.Range(1f, 2f));
-            wind.GetComponent<Wind>().windVector = new Vector2(Random.Range(-0.003f, 0.003f), Random.Range(-0.0005f, 0.001f));
-            wind.GetComponent<Wind>().speedRange = new Vector2(Random.Range(0, 0.001f), Random.Range(-0.00025f, 0.0005f));
+            wind.GetComponent<Wind>().windVector = new Vector2(Random.Range(-0.3f, 0.3f), Random.Range(-0.05f, 0.1f));
+            wind.GetComponent<Wind>().speedRange = new Vector2(Random.Range(0, 0.1f), Random.Range(-0.025f, 0.05f));
             wind.GetComponent<Wind>().destroy(Random.Range(1f, 5f));
         }
 	}
