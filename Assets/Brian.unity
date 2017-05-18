@@ -533,7 +533,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1129202561788970, guid: 75db988b9e8a8994b95d7d495e081fda, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75db988b9e8a8994b95d7d495e081fda, type: 2}
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70e76a08e9b9df44a01d3338f57a288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PointsPerBalloon: 0
+  PointsPerBalloon: 10
 --- !u!61 &253012553
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1035,7 +1035,12 @@ Prefab:
     - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
         type: 2}
       propertyPath: key
-      value: 412
+      value: 352
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
+        type: 2}
+      propertyPath: PointsPerBalloon
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
@@ -1312,7 +1317,7 @@ Prefab:
     - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
         type: 2}
       propertyPath: key
-      value: 275
+      value: 361
       objectReference: {fileID: 0}
     - target: {fileID: 1000013855077070, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
       propertyPath: m_Layer
@@ -1330,6 +1335,11 @@ Prefab:
     - target: {fileID: 4000010316666646, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
+        type: 2}
+      propertyPath: PointsPerBalloon
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
@@ -1412,7 +1422,12 @@ Prefab:
     - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
         type: 2}
       propertyPath: key
-      value: 410
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
+        type: 2}
+      propertyPath: PointsPerBalloon
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
@@ -1570,7 +1585,7 @@ Prefab:
     - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
         type: 2}
       propertyPath: key
-      value: 274
+      value: 359
       objectReference: {fileID: 0}
     - target: {fileID: 1000013855077070, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
       propertyPath: m_Layer
@@ -1597,6 +1612,11 @@ Prefab:
     - target: {fileID: 4000010316666646, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
+        type: 2}
+      propertyPath: PointsPerBalloon
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
@@ -1651,6 +1671,7 @@ MonoBehaviour:
   key: 99
   createMode: 0
   n: {fileID: 0}
+  PointsPerBalloon: 0
 --- !u!212 &740332448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1752,7 +1773,7 @@ Prefab:
     - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
         type: 2}
       propertyPath: key
-      value: 273
+      value: 358
       objectReference: {fileID: 0}
     - target: {fileID: 1000013855077070, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
       propertyPath: m_Name
@@ -1770,6 +1791,11 @@ Prefab:
     - target: {fileID: 4000010316666646, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
+        type: 2}
+      propertyPath: PointsPerBalloon
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
@@ -2272,9 +2298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f03cf1c46f93642b423ff51e0bc13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 0.6
-  spawnDelay: 2
-  intervalDelay: 5
+  spawnTime: 0.4
+  spawnDelay: 1
+  intervalDelay: 1
   notes: []
   PrefabLimit: 10
   count: 0
@@ -2617,7 +2643,7 @@ Prefab:
     - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
         type: 2}
       propertyPath: key
-      value: 411
+      value: 351
       objectReference: {fileID: 0}
     - target: {fileID: 212000010479709998, guid: 6feb39708562f6740bebf16852a17c40,
         type: 2}
@@ -2646,6 +2672,11 @@ Prefab:
     - target: {fileID: 4000010316666646, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
+        type: 2}
+      propertyPath: PointsPerBalloon
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
@@ -2871,7 +2902,12 @@ Prefab:
     - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
         type: 2}
       propertyPath: key
-      value: 413
+      value: 353
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
+        type: 2}
+      propertyPath: PointsPerBalloon
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
@@ -3174,7 +3210,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1665660761372674, guid: c25400fce0ef38b4292ba09e4983ae8c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c25400fce0ef38b4292ba09e4983ae8c, type: 2}
@@ -3306,7 +3342,7 @@ Prefab:
     - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
         type: 2}
       propertyPath: key
-      value: 276
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 1000013855077070, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
       propertyPath: m_Layer
@@ -3324,6 +3360,11 @@ Prefab:
     - target: {fileID: 4000010316666646, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012520264968, guid: 6feb39708562f6740bebf16852a17c40,
+        type: 2}
+      propertyPath: PointsPerBalloon
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6feb39708562f6740bebf16852a17c40, type: 2}
@@ -3440,6 +3481,35 @@ Prefab:
     - target: {fileID: 4000010009396030, guid: 9f025585299a353439fe83e6911a5c9e, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212071949137622090, guid: 9f025585299a353439fe83e6911a5c9e,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50117795879007770, guid: 9f025585299a353439fe83e6911a5c9e,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868509901110256, guid: 9f025585299a353439fe83e6911a5c9e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013735878728, guid: 9f025585299a353439fe83e6911a5c9e,
+        type: 2}
+      propertyPath: jumpAccel
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013735878728, guid: 9f025585299a353439fe83e6911a5c9e,
+        type: 2}
+      propertyPath: horizontalControl
+      value: Joystick Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013735878728, guid: 9f025585299a353439fe83e6911a5c9e,
+        type: 2}
+      propertyPath: maxHorizontalSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f025585299a353439fe83e6911a5c9e, type: 2}
@@ -3583,6 +3653,16 @@ Prefab:
     - target: {fileID: 4000010474626384, guid: 901a634400b73aa47b515ccf0bd9bad8, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011477572636, guid: 901a634400b73aa47b515ccf0bd9bad8,
+        type: 2}
+      propertyPath: horizontalControl
+      value: Joystick TopHorizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011208688838, guid: 901a634400b73aa47b515ccf0bd9bad8,
+        type: 2}
+      propertyPath: balloonCount
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 901a634400b73aa47b515ccf0bd9bad8, type: 2}

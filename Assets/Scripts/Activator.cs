@@ -10,6 +10,7 @@ public class Activator : MonoBehaviour {
     Color old;
     public bool createMode;
     public GameObject n;
+    public int PointsPerBalloon;
     
     void Awake()
     {
@@ -54,7 +55,7 @@ public class Activator : MonoBehaviour {
 
     void AddScore()
     {
-        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + 2);
+        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score") + PointsPerBalloon);
     }
 
     IEnumerator Pressed()
