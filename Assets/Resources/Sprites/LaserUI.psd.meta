@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: d47bc652faa6ad843a422ac6014edb30
-timeCreated: 1495183853
+guid: 6068ef5806b661248a0319c5f19952f1
+timeCreated: 1495188076
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: arrows_0
-    21300002: arrows_1
-    21300004: arrows_2
+  fileIDToRecycleName: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -27,17 +24,17 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,46 +68,7 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: arrows_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 56
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: arrows_1
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 0
-        width: 56
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5325}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: arrows_2
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 56
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5357, y: 0.49999997}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 

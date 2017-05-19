@@ -24,14 +24,14 @@ public class Arrow : MonoBehaviour {
 
     void OnCollisionEnter2D (Collision2D c) {
         if (c.collider.CompareTag("Wall") || c.collider.CompareTag("Player")) {
-            //Debug.DrawRay(transform.position - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, transform.up * 3f, Color.blue, 3);
-            RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, transform.up, 2f);
+            //Debug.DrawRay(transform.position - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, transform.up * (GetComponent<BoxCollider2D>().bounds.size.y + 0.2f), Color.blue, 3);
+            Debug.DrawRay(transform.position - transform.up * 0.5f, transform.up *  1.2f, Color.blue, 3);
+            RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, transform.up, GetComponent<BoxCollider2D>().bounds.size.y + 2f);
             bool didHit = false;
             foreach (RaycastHit2D x in hit) {
                 if (x.collider.CompareTag(c.collider.tag)) {
                     didHit = true;
                     transform.position = new Vector3(x.point.x, x.point.y);
-                    Debug.DrawRay(new Vector3(x.point.x, x.point.y), transform.position - new Vector3(x.point.x, x.point.y), Color.red, 3);
                     break;
                 }
             }
