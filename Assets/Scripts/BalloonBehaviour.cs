@@ -17,6 +17,8 @@ public class BalloonBehaviour : MonoBehaviour {
     public float maxHeat;
     public float heatCoolDownPerSec;
 
+    public AudioClip popSound;
+
     void Awake() {
         rigidbody = GetComponent<Rigidbody2D>();
     }
@@ -63,6 +65,8 @@ public class BalloonBehaviour : MonoBehaviour {
     }
 
     public virtual void pop() {
+        AudioSource.PlayClipAtPoint(popSound, Camera.main.transform.position, 0.1f);
+
         gameStateManager.poppedBalloon(balloonValue);
         Destroy(Instantiate<GameObject>(PoppedBalloonParticles, transform.position, transform.rotation, transform.parent), 0.5f);
         Destroy(gameObject);
