@@ -8,7 +8,7 @@ public class LaserTurrent : TurrentWeapon {
     private LineRenderer laserLine;
     private LayerMask mask;
     private GameObject particleSystemObject;
-    private ParticleSystem particleSystem;
+    private ParticleSystem lineParticleSystem, hitParticleSystem;
     public int particlesPerUnit;
     private GameObject laserHit;
     public float charge;
@@ -21,10 +21,11 @@ public class LaserTurrent : TurrentWeapon {
         laserLine.materials[0].mainTextureScale = new Vector3(1, 1, 1);
         mask = ~(LayerMask.GetMask("Ignore") + LayerMask.GetMask("Wind") + LayerMask.GetMask("Turrent"));
 
-        particleSystem = transform.GetComponentInChildren<ParticleSystem>();
-        particleSystemObject = particleSystem.gameObject;
+        lineParticleSystem = transform.GetComponentInChildren<ParticleSystem>();
+        particleSystemObject = lineParticleSystem.gameObject;
 
         laserHit = transform.GetComponentInChildren<LaserHit>().gameObject;
+        hitParticleSystem = laserHit.GetComponent<ParticleSystem>();
     }
 	
 	// Update is called once per frame
@@ -41,10 +42,10 @@ public class LaserTurrent : TurrentWeapon {
 
         laserLine.SetPosition(1, transform.position + transform.up * length);
         laserLine.SetPosition(0, transform.position);
-        var shape = particleSystem.shape;
+        var shape = lineParticleSystem.shape;
         shape.box = new Vector3(shape.box.x, length, 0);
 
-        var emission = particleSystem.emission;
+        var emission = lineParticleSystem.emission;
         emission.rateOverTime = length * particlesPerUnit;
 
         laserHit.transform.position = hit.point;
@@ -56,14 +57,18 @@ public class LaserTurrent : TurrentWeapon {
     }
 
     private void activate() {
-        particleSystem.Play();
-        laserHit.SetActive(true);
+        lineParticleSystem.Play();
+        hitParticleSystem.Play();
+        laserHit.GetComponent<CircleCollider2D>().enabled = true;
+        laserHit.GetComponent<SpriteRenderer>().enabled = true;
         laserLine.enabled = true;
     }
 
     private void deactivate() {
-        particleSystem.Stop();
-        laserHit.SetActive(false);
+        lineParticleSystem.Stop();
+        hitParticleSystem.Stop();
+        laserHit.GetComponent<CircleCollider2D>().enabled = false;
+        laserHit.GetComponent<SpriteRenderer>().enabled = false;
         laserLine.enabled = false;
     }
 }
