@@ -5,53 +5,65 @@ using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour {
 
-    public int balloonsLostLimit;
-    private int _balloonsLost;
-    public int balloonsLost {
+    public static GameObject go;
+
+    public static int balloonsLostLimit = 100;
+    private static int _balloonsLost;
+    public static int balloonsLost {
         get { return _balloonsLost; }
     }
-    private int _balloonsPopped;
-    public int balloonsPopped {
+    private static int _balloonsPopped;
+    public static int balloonsPopped {
         get { return _balloonsPopped; }
     }
-    public float timeLimit;
-    private float startTime;
-    public float time {
+    public static float timeLimit = 120;
+    private static float startTime;
+    public static float time {
         get { return Time.time - startTime; }
+    }
+    public static float timeRemaining {
+        get { return timeLimit - time; }
     }
 
     public GameObject button;
 
-    private enum GameState {
+    public static GameState gameState = GameState.start;
+    public enum GameState {
         start, progressing, gameOver
     }
 
     void Awake() {
-        BalloonBehaviour.gameStateManager = this;
+        go = gameObject;
     }
 
     void Start() {
-        startTime = Time.time;
+        resetGame();
     }
 
-    public void poppedBalloon(int value) {
+    public static void poppedBalloon(int value) {
         _balloonsPopped += value;
     }
 
-    public void lostBalloon(int value) {
+    public static void lostBalloon(int value) {
         _balloonsLost += value;
     }
 
-    public void resetGame() {
+    public static void resetGame() {
         resetBalloonsLost();
+        resetTime();
     }
 
-    private void resetBalloonsLost() {
+    private static void resetBalloonsLost() {
         _balloonsLost = 0;
     }
 
+    private static void resetTime() {
+        startTime = Time.time;
+    }
+
     void Update() {
-        switch(checkGameState()) {
+        gameState = checkGameState();
+        switch (gameState) {
             case GameState.start:
                 break;
             case GameState.progressing:
@@ -79,6 +91,7 @@ public class GameStateManager : MonoBehaviour {
     }
 
     public void restartGame() {
+        resetGame();
         SceneManager.LoadScene("Brian");
     }
 }

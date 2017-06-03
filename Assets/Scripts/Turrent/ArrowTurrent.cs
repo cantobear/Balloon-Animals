@@ -8,7 +8,11 @@ public class ArrowTurrent : TurrentWeapon {
     public GameObject arrowPrefab;
 
     public float firePower = 50;
-    private float charge = 0f;
+    private float _charge = 0f;
+    private float charge {
+        get { return _charge; }
+        set { _charge = value; updateTragectory(); }
+    }
     public float chargeTime;
     private float chargeTimePassed;
     public float chargeSpeedExponent;
@@ -20,19 +24,23 @@ public class ArrowTurrent : TurrentWeapon {
     }
     public float arrowRespawnTime;
 
+    private LineRenderer line;
+
+    public LayerMask mask;
+
     // Use this for initialization
     void Start () {
-		
-	}
+        line = GetComponent<LineRenderer>();
+        line.materials[0].mainTextureScale = new Vector3(5, 1, 1);
+    }
 	
 	// Update is called once per frame
 	void Update () {
         _arrowCount = Mathf.Min(arrowCount + Time.deltaTime / arrowRespawnTime, maxArrowCount);
-        if (charge == 1) {
-            drawTragectory(transform.position, transform.up * charge * firePower, Color.yellow);
-        }
-        else
-            drawTragectory(transform.position, transform.up * charge * firePower, Color.white);
+    }
+
+    public override void OnRotate() {
+        updateTragectory();
     }
 
     public override bool hasAmmo() {
@@ -41,7 +49,9 @@ public class ArrowTurrent : TurrentWeapon {
 
     public override void triggerDown() {
         chargeTimePassed = Mathf.Min(chargeTimePassed + Time.deltaTime / chargeTime, 1);
-        charge = 1 - Mathf.Pow((-chargeTimePassed + 1) , chargeSpeedExponent);
+        if (charge < 1) {
+            charge = 1 - Mathf.Pow((-chargeTimePassed + 1), chargeSpeedExponent);
+        }
     }
 
     public override void triggerUp() {
@@ -59,23 +69,40 @@ public class ArrowTurrent : TurrentWeapon {
         }
     }
 
+    private void updateTragectory() {
+        if (charge == 1) {
+            drawTragectory(transform.position, transform.up * charge * firePower, Color.yellow);
+        }
+        else
+            drawTragectory(transform.position, transform.up * charge * firePower, Color.white);
+    }
+
     void drawTragectory(Vector3 startPos, Vector3 velocity, Color color) {
-        LineRenderer line = GetComponent<LineRenderer>();
+        int linePerTick = 3;
+        float maxTime = 3;
+        int count = (int)Mathf.Floor(maxTime / Time.fixedDeltaTime / linePerTick);
         line.startColor = color;
         line.endColor = color;
-        line.positionCount = 25;
+        line.positionCount = count;
+        Vector2 prevPos = startPos;
         Vector2 curPos = startPos;
         Vector2 vel = velocity;
+        RaycastHit2D hit;
 
-        for (int i = 0; i < 50; i++) {
-            if (i % 2 == 0)
-                line.SetPosition(i / 2, curPos);
+        for (int i = 0; i < count * linePerTick; i++) {
+            if (i % linePerTick == 0) {
+                hit = Physics2D.Linecast(prevPos, curPos, mask);
+                if (hit == true) {
+                    line.SetPosition(i / linePerTick, hit.point);
+                    line.positionCount = (i / linePerTick) + 1;
+                    break;
+                }
+                line.SetPosition(i / linePerTick, curPos);
+                prevPos = curPos;
+            }
             vel += Physics2D.gravity * 3 * Time.fixedDeltaTime;
             curPos += vel * Time.fixedDeltaTime;
-
         }
-
-        line.materials[0].mainTextureScale = new Vector3(5, 1, 1);
     }
 
     void fireDirection(float angle, float speed) {

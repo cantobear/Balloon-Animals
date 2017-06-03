@@ -11,7 +11,6 @@ public class BalloonBehaviour : MonoBehaviour {
     private Vector2 windVector;
     public GameObject PoppedBalloonParticles;
     public int balloonValue;
-    public static GameStateManager gameStateManager;
     private int seed;
     private float heat;
     public float maxHeat;
@@ -63,7 +62,7 @@ public class BalloonBehaviour : MonoBehaviour {
     }
 
     public virtual void pop() {
-        gameStateManager.poppedBalloon(balloonValue);
+        GameStateManager.poppedBalloon(balloonValue);
         Destroy(Instantiate<GameObject>(PoppedBalloonParticles, transform.position, transform.rotation, transform.parent), 0.5f);
         Destroy(gameObject);
     }
@@ -101,7 +100,7 @@ public class BalloonBehaviour : MonoBehaviour {
     }
 
     public virtual void onGrounded() {
-        gameStateManager.lostBalloon(balloonValue);
+        GameStateManager.lostBalloon(balloonValue);
         Destroy(gameObject);
     }
 }

@@ -18,6 +18,9 @@ public abstract class TurrentWeapon : MonoBehaviour {
         return true;
     }
 
+    public virtual void OnRotate() {
+    }
+
     public abstract void triggerDown();
 
     public abstract void triggerUp();

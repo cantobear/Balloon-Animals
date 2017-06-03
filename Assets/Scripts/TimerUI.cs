@@ -4,17 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TimerUI : MonoBehaviour {
-
-    private GameStateManager gameStateManager;
+    
     private Text text;
 
     void Awake() {
-        gameStateManager = GameObject.FindObjectOfType<GameStateManager>();
         text = GetComponent<Text>();
     }
 
     void Update() {
-        string seconds = ((int)Mathf.Ceil(gameStateManager.timeLimit - gameStateManager.time) % 60).ToString();
-        text.text = ((int)Mathf.Ceil(gameStateManager.timeLimit - gameStateManager.time) / 60).ToString() + ":" + (seconds.Length == 1 ? "0" + seconds : seconds);
+        int time = (int)Mathf.Ceil(Mathf.Max(GameStateManager.timeRemaining, 0));
+        string seconds = (time % 60).ToString();
+        text.text = (time / 60).ToString() + ":" + (seconds.Length == 1 ? "0" + seconds : seconds);
     }
 }

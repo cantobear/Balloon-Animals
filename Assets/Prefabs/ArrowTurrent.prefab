@@ -59,6 +59,9 @@ MonoBehaviour:
   chargeSpeedExponent: 3
   maxArrowCount: 5
   arrowRespawnTime: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 33685760
 --- !u!120 &120565140934814994
 LineRenderer:
   m_ObjectHideFlags: 1
