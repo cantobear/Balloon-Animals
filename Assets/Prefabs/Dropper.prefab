@@ -160,7 +160,8 @@ MonoBehaviour:
   balloonDelay: 0
   dropControl: Drop
   dropAllControl: Drop All
-  balloonCount: 10000
+  dropAllAmmount: 10
+  balloonCount: 100
   balloons:
   - {fileID: 1000013457798366, guid: 2d096666dd6889143883ac9f4b1b5bbf, type: 2}
   - {fileID: 1531685226931992, guid: 92b3ab01605c60a4f920c2f2a9d09b85, type: 2}
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2aef9de4642e8449872779beddff22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalControl: Horizontal2
+  horizontalControl: Joystick TopHorizontal
   jumpControl: Null
   maxHorizontalSpeed: 7
   horizontalAccel: 50

@@ -33,10 +33,11 @@ public class ddrSpawner : MonoBehaviour {
         int enemyIndex = Random.Range(0, notes.Length);
         Instantiate(notes[enemyIndex], transform.position, transform.rotation);
         count++;
+        PlayerPrefs.SetInt("bCount", PlayerPrefs.GetInt("bCount") + PlayerPrefs.GetInt("Score"));
+        PlayerPrefs.SetInt("Score", 0);
         if (count >= balloonsPerInterval)
         {
-            PlayerPrefs.SetInt("bCount", PlayerPrefs.GetInt("bCount") + PlayerPrefs.GetInt("Score"));
-            PlayerPrefs.SetInt("Score", 0);
+            
             CancelInvoke();
             InvokeR(intervalDelay);
         }
