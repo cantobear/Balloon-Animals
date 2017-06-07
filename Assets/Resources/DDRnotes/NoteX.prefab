@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58000012156072294}
   - component: {fileID: 50000012835678366}
   - component: {fileID: 114000011438275106}
-  m_Layer: 15
+  m_Layer: 11
   m_Name: NoteX
   m_TagString: Note
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012117050016}
   - component: {fileID: 212000012861544920}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: x_note
   m_TagString: Untagged
   m_Icon: {fileID: 0}
