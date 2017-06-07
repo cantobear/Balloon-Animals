@@ -64,7 +64,7 @@ public class BalloonBehaviour : MonoBehaviour {
     }
 
     public virtual void pop() {
-        AudioSource.PlayClipAtPoint(popSound, Camera.main.transform.position, 0.1f);
+        AudioSource.PlayClipAtPoint(popSound, Camera.main.transform.position, 0.2f);
         GameStateManager.poppedBalloon(balloonValue);
         Destroy(Instantiate<GameObject>(PoppedBalloonParticles, transform.position, transform.rotation, transform.parent), 0.5f);
         Destroy(gameObject);

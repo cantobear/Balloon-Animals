@@ -28,10 +28,18 @@ public class ArrowTurrent : TurrentWeapon {
 
     public LayerMask mask;
 
+    AudioSource audio;
+    public AudioClip arrowSound;
+    
+    
+
     // Use this for initialization
     void Start () {
         line = GetComponent<LineRenderer>();
         line.materials[0].mainTextureScale = new Vector3(5, 1, 1);
+
+        audio = GetComponent<AudioSource>();
+        
     }
 	
 	// Update is called once per frame
@@ -56,6 +64,7 @@ public class ArrowTurrent : TurrentWeapon {
 
     public override void triggerUp() {
         if (charge == 1) {
+            audio.Play();
             fireDirection(Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg - 85, charge * firePower);
             fireDirection(Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg - 90, charge * firePower);
             fireDirection(Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg - 95, charge * firePower);
@@ -63,6 +72,7 @@ public class ArrowTurrent : TurrentWeapon {
             --_arrowCount;
         }
         else if (charge > 0) {
+            audio.Play();
             fireDirection(Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg - 90, charge * firePower);
             charge = chargeTimePassed = 0;
             --_arrowCount;
