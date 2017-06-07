@@ -173,7 +173,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 9cbcf23b41fcb0d4ebbef096fa2fa73d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -374,8 +374,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 136848614}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.8, y: 0.9, z: 0}
-  m_LocalScale: {x: 4, y: 15.884853, z: 1}
+  m_LocalPosition: {x: 13.8, y: 0.05, z: 0}
+  m_LocalScale: {x: 4, y: 17.581068, z: 1}
   m_Children: []
   m_Father: {fileID: 1574863705}
   m_RootOrder: 4
@@ -389,7 +389,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4672844794144024, guid: 825dd991cd114f146888bcda65ce2008, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.005
+      value: -0.0292
       objectReference: {fileID: 0}
     - target: {fileID: 4672844794144024, guid: 825dd991cd114f146888bcda65ce2008, type: 2}
       propertyPath: m_LocalPosition.y
@@ -425,7 +425,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4672844794144024, guid: 825dd991cd114f146888bcda65ce2008, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.0092211
+      value: 0.96084833
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 825dd991cd114f146888bcda65ce2008, type: 2}
@@ -1355,8 +1355,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 485810615}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.8, y: -1.49, z: 0}
-  m_LocalScale: {x: 4, y: 13.096164, z: 1}
+  m_LocalPosition: {x: -13.8, y: -1.91, z: 0}
+  m_LocalScale: {x: 4, y: 13.944272, z: 1}
   m_Children: []
   m_Father: {fileID: 1574863705}
   m_RootOrder: 2
@@ -1421,7 +1421,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 163a1d309590aad419f9ffb6f541f352, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1770,7 +1770,7 @@ GameObject:
   - component: {fileID: 629668409}
   - component: {fileID: 629668408}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: BalloonCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1791,7 +1791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -157.35, y: -31.53003}
+  m_AnchoredPosition: {x: -129, y: -31.525}
   m_SizeDelta: {x: -690.9, y: 28.950012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &629668408
@@ -2948,8 +2948,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.67749995, y: 0.9}
   m_AnchorMax: {x: 0.90375, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.25109863}
-  m_SizeDelta: {x: 0, y: -0.50211}
+  m_AnchoredPosition: {x: 118, y: -278.85}
+  m_SizeDelta: {x: -83, y: 41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1196015392
 GameObject:
@@ -3272,7 +3272,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 163a1d309590aad419f9ffb6f541f352, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -3431,14 +3431,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 3
-    m_AlignByGeometry: 0
+    m_MaxSize: 44
+    m_Alignment: 4
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Balloons Lost: '
+  m_Text: "Balloons\nLost:\n "
 --- !u!222 &1428194544
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7169,7 +7169,7 @@ GameObject:
   - component: {fileID: 1729070616}
   - component: {fileID: 1729070615}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 'BALLOONS:'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7190,7 +7190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -269.5, y: -31.5}
+  m_AnchoredPosition: {x: -241.50986, y: -31.499985}
   m_SizeDelta: {x: -684.8, y: 28.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729070615
