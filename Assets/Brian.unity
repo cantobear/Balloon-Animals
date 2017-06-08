@@ -1825,7 +1825,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 26b2f8cd3787c89439a02341f905c0b2, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
@@ -2921,12 +2921,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTime: 0.4
-  spawnDelay: 1
-  intervalDelay: 1
+  spawnDelay: 0.4
+  intervalDelay: 1.65
   notes: []
   PrefabLimit: 10
   count: 0
-  balloonsPerInterval: 10
+  balloonsPerInterval: 16
 --- !u!4 &1160002716 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010316666646, guid: 6feb39708562f6740bebf16852a17c40,
@@ -3141,7 +3141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.67749995, y: 0.9}
   m_AnchorMax: {x: 0.90375, y: 1}
-  m_AnchoredPosition: {x: -166, y: -405.18}
+  m_AnchoredPosition: {x: -248.87, y: -405.18}
   m_SizeDelta: {x: 11.515, y: 41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1196015392
@@ -6949,6 +6949,11 @@ Prefab:
       propertyPath: button
       value: 
       objectReference: {fileID: 269268758}
+    - target: {fileID: 114342852569256962, guid: 0eacd94ab51b7234b97cd09c9e7b871a,
+        type: 2}
+      propertyPath: song
+      value: 
+      objectReference: {fileID: 8300000, guid: 26b2f8cd3787c89439a02341f905c0b2, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0eacd94ab51b7234b97cd09c9e7b871a, type: 2}
   m_IsPrefabParent: 0
@@ -7644,7 +7649,7 @@ Prefab:
     - target: {fileID: 114000011208688838, guid: 901a634400b73aa47b515ccf0bd9bad8,
         type: 2}
       propertyPath: balloonCount
-      value: 100
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 114000011208688838, guid: 901a634400b73aa47b515ccf0bd9bad8,
         type: 2}

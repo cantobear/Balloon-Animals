@@ -32,12 +32,14 @@ public class GameStateManager : MonoBehaviour {
         start, progressing, gameOver
     }
 
+
     void Awake() {
         go = gameObject;
     }
 
     void Start() {
         resetGame();
+
     }
 
     public static void poppedBalloon(int value) {

@@ -11,6 +11,7 @@ public class Activator : MonoBehaviour {
     public bool createMode;
     public GameObject n;
     public int PointsPerBalloon;
+
     
     void Awake()
     {
