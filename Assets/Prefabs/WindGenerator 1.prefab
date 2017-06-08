@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61160676156990436}
   - component: {fileID: 114117195915042044}
   m_Layer: 21
-  m_Name: WindGenerator
+  m_Name: WindGenerator 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

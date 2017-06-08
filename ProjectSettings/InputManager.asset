@@ -350,7 +350,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.001
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 0
@@ -366,7 +366,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.001
+    dead: 0.19
     sensitivity: 1
     snap: 0
     invert: 1
@@ -407,6 +407,22 @@ InputManager:
     joyNum: 4
   - serializedVersion: 3
     m_Name: Joystick TopHorizontal
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1
+    dead: 0.001
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 0
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: StartButton
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 

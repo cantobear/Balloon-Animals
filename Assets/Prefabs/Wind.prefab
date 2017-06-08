@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212823004424632374}
   - component: {fileID: 61718127411961266}
   - component: {fileID: 114242679820292404}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Wind
   m_TagString: Wind
   m_Icon: {fileID: 0}

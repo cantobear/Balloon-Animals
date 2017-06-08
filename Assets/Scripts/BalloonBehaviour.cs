@@ -11,8 +11,12 @@ public class BalloonBehaviour : MonoBehaviour {
     private Vector2 windVector;
     public GameObject PoppedBalloonParticles;
     public int balloonValue;
-    public static GameStateManager gameStateManager;
     private int seed;
+    private float heat;
+    public float maxHeat;
+    public float heatCoolDownPerSec;
+
+    public AudioClip popSound;
 
     void Awake() {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -32,7 +36,11 @@ public class BalloonBehaviour : MonoBehaviour {
         if (magnitude > maxVelocity)
             rigidbody.velocity -= rigidbody.velocity * Mathf.Min(Mathf.Pow((magnitude - maxVelocity)/2, 1.4f) * (deceleration/magnitude) * Time.fixedDeltaTime, 1);//((magnitude - Mathf.Pow(magnitude/2, 2) * Time.fixedDeltaTime) / magnitude);
 
+        if (heat > maxHeat) {
+            onMaxHeat();
         }
+        removeHeat(heatCoolDownPerSec * Time.fixedDeltaTime);
+    }
 
     void OnCollisionEnter2D(Collision2D coll) {
         if (coll.collider.name == "Ground")
@@ -56,7 +64,8 @@ public class BalloonBehaviour : MonoBehaviour {
     }
 
     public virtual void pop() {
-        gameStateManager.poppedBalloon(balloonValue);
+        AudioSource.PlayClipAtPoint(popSound, Camera.main.transform.position, 0.3f);
+        GameStateManager.poppedBalloon(balloonValue);
         Destroy(Instantiate<GameObject>(PoppedBalloonParticles, transform.position, transform.rotation, transform.parent), 0.5f);
         Destroy(gameObject);
     }
@@ -73,8 +82,28 @@ public class BalloonBehaviour : MonoBehaviour {
         windVector -= v;
     }
 
+    protected virtual void onMaxHeat() {
+        pop();
+    }
+
+    public virtual void addHeat(float amount) {
+        heat += amount;
+        updateHeatColor();
+    }
+
+    public virtual void removeHeat(float amount) {
+        heat = Mathf.Max(0, heat - amount);
+        updateHeatColor();
+    }
+
+    private void updateHeatColor() {
+        float colorValue = 1 - (heat / maxHeat) / 1.33f;
+        Color burnColor = new Color(Mathf.Sqrt(colorValue), colorValue, colorValue);
+        GetComponent<SpriteRenderer>().color = burnColor;
+    }
+
     public virtual void onGrounded() {
-        gameStateManager.lostBalloon(balloonValue);
+        GameStateManager.lostBalloon(balloonValue);
         Destroy(gameObject);
     }
 }

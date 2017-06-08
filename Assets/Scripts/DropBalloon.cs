@@ -6,6 +6,7 @@ public class DropBalloon : MonoBehaviour {
     public float balloonDelay = 0.1f;
     public string dropControl = "Drop";
     public string dropAllControl = "Drop All";
+    public int dropAllAmmount = 10;
     public int balloonCount = 100;
     private float zPosition = 0;
     bool dropped = false;
@@ -28,7 +29,7 @@ public class DropBalloon : MonoBehaviour {
                 if (Input.GetAxis(dropControl) != 0)
                     dropBalloon();
                 else if (Input.GetAxis(dropAllControl) != 0)
-                    dropBalloons(10);
+                    dropBalloons(dropAllAmmount);
             }
         }
         balloonCount = PlayerPrefs.GetInt("bCount"); //Sets the balloonCount to the number displayed
@@ -41,8 +42,9 @@ public class DropBalloon : MonoBehaviour {
         spawned.transform.position = transform.position + Vector3.forward * zPosition;
         //spawned.transform.Translate(Vector3.down * 6.8f);
         spawned.transform.Rotate(new Vector3(0, 0, Random.Range(1, 360)));
-        
-        PlayerPrefs.SetInt("bCount", balloonCount--); //Subtracts a balloon on the display
+        spawned.transform.SetParent(GameStateManager.go.transform);
+
+        PlayerPrefs.SetInt("bCount", balloonCount); //Subtracts a balloon on the display
         return spawned;
     }
 

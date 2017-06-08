@@ -4,17 +4,19 @@ using System.Collections;
 public class Arrow : MonoBehaviour {
 
     public float despawnTime = 5f;
+    private Rigidbody2D rigidbody;
     //public float gravity;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        rigidbody = GetComponent<Rigidbody2D>();
 
-	}
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (GetComponent<Rigidbody2D>().velocity.magnitude > 0.1f) {
-            Vector3 direction = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
+        if (rigidbody.velocity.magnitude > 0.1f && rigidbody.bodyType == RigidbodyType2D.Dynamic) {
+            Vector3 direction = rigidbody.velocity.normalized;
             transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
         }
         //GetComponent<Rigidbody2D>().AddForce(new Vector3(0, gravity, 0), ForceMode.Acceleration);
@@ -22,21 +24,23 @@ public class Arrow : MonoBehaviour {
 
     void OnCollisionEnter2D (Collision2D c) {
         if (c.collider.CompareTag("Wall") || c.collider.CompareTag("Player")) {
-            RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, transform.position + transform.up * 3f * GetComponent<BoxCollider2D>().bounds.extents.y);
+            //Debug.DrawRay(transform.position - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, transform.up * (GetComponent<BoxCollider2D>().bounds.size.y + 0.2f), Color.blue, 3);
+            Debug.DrawRay(transform.position - transform.up * 0.5f, transform.up *  1.2f, Color.blue, 3);
+            RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position - transform.up * GetComponent<BoxCollider2D>().bounds.extents.y, transform.up, GetComponent<BoxCollider2D>().bounds.size.y + 2f);
             bool didHit = false;
             foreach (RaycastHit2D x in hit) {
                 if (x.collider.CompareTag(c.collider.tag)) {
-                    GetComponent<Rigidbody2D>().simulated = false;
                     didHit = true;
-                    transform.position += new Vector3(x.point.x, x.point.y) - transform.position;
+                    transform.position = new Vector3(x.point.x, x.point.y);
                     break;
                 }
             }
             if (didHit) {
                 if (c.collider.CompareTag("Player"))
                     transform.parent = c.transform;
-                GetComponent<Rigidbody2D>().isKinematic = true;
+                rigidbody.bodyType = RigidbodyType2D.Kinematic;
                 GetComponent<BoxCollider2D>().enabled = false;
+                rigidbody.velocity = Vector3.zero;
                 StartCoroutine("deleteAfterDelay", despawnTime);
             }
             if (c.collider.name == "Ground") {
