@@ -7,7 +7,7 @@ public class GameStateManager : MonoBehaviour {
 
     public static GameObject go;
 
-    public static int balloonsLostLimit = 100;
+    public static int balloonsLostLimit = 500;
     private static int _balloonsLost;
     public static int balloonsLost {
         get { return _balloonsLost; }
@@ -26,6 +26,7 @@ public class GameStateManager : MonoBehaviour {
     }
 
     public GameObject button;
+
 
     public static GameState gameState = GameState.start;
     public enum GameState {

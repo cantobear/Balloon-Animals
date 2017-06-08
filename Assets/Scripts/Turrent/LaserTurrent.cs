@@ -26,11 +26,13 @@ public class LaserTurrent : TurrentWeapon {
 
         laserHit = transform.GetComponentInChildren<LaserHit>().gameObject;
         hitParticleSystem = laserHit.GetComponent<ParticleSystem>();
+
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-
+        triggerDown();
     }
 
     public override void triggerDown() {
