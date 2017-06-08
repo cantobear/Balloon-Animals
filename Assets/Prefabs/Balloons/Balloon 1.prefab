@@ -223,7 +223,7 @@ MonoBehaviour:
   balloonValue: 1
   maxHeat: 100
   heatCoolDownPerSec: 20
-  popSound: {fileID: 8300000, guid: 48eb55c9078f5084488f13aa3f6fce03, type: 3}
+  popSound: {fileID: 8300000, guid: d702cf0a222d71e489be770ea094871e, type: 3}
 --- !u!212 &212671529304388126
 SpriteRenderer:
   m_ObjectHideFlags: 1
